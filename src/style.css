@@ -1,0 +1,131 @@
+@import 'tailwindcss';
+
+/* :root {
+  --color-primary: 174 168 142;
+}
+@theme {
+  --color-primary: rgb(var(--color-primary));
+} */
+
+@layer utilities {
+  .clip-slanted {
+    clip-path: polygon(0 0, 95% 5%, 95% 95%, 0 100%);
+  }
+  .clip-kiri {
+    clip-path: polygon(5% 5%, 100% 0, 100% 100%, 5% 95%);
+  }
+  .bg-preloader-grid {
+    background-image: repeating-linear-gradient(
+      to right,
+      #e5e7eb 1px,
+      transparent 1px 80px
+    );
+    background-color: white;
+  }
+}
+
+@layer components {
+  .containers {
+    @apply max-w-[1440px] w-full mx-auto;
+  }
+  .borderPrimry {
+    @apply border-b border-[#737373] w-fit;
+  }
+}
+
+@font-face {
+  font-family: '/fonts/Volgarie.ttfVolgarie';
+  src: url('/fonts/Volgarie.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.line {
+  transform: scaleY(0);
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* Preloader styling */
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: #f8f8f8;
+}
+
+/* Content styling - initially hidden */
+/* .main-content {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform, opacity;
+} */
+
+.main-content {
+  display: block; /* atau flex/grid jika kamu pakai itu */
+  transform-origin: center center;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* scrolll */
+body.no-scroll {
+  overflow: hidden;
+}
+
+#preloader {
+  background-color: transparent;
+}
+
+html {
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+#targetZoom {
+  transform-origin: center center;
+}
+
+/* Tailwind harus punya ini untuk translate-x dan -translate-x */
+
+.opacity-0 {
+  opacity: 0;
+}
+.opacity-100 {
+  opacity: 1;
+}
+.translate-x-0 {
+  transform: translateX(0);
+}
+.-translate-x-full {
+  transform: translateX(-100%);
+}
+
+html.lenis {
+  scroll-behavior: auto !important;
+}
+

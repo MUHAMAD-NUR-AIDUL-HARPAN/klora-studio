@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis lenis-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <title>Vite App</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.35/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.35/bundled/lenis.min.js"></script>
+    <!-- Di bagian <head> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Sebelum </body> -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <style>
+      .clip-top-wave {
+        clip-path: path('M0,100 C360,0 1080,0 1440,100 L1440,0 L0,0 Z');
+      }
+      .clip-wave {
+        clip-path: path('M0,0 C400,100 1040,100 1440,0 L1440,300 L0,300 Z');
+      }
+      #horizontalScroll {
+        pointer-events: auto !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- PRELOADER -->
+    <div id="preloader">
+      <div
+        class="absolute inset-0 flex justify-between px-4 z-50 pointer-events-none"
+      >
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+        <div class="line w-px h-full bg-black/20"></div>
+      </div>
+
+      <div
+        id="preloader-top"
+        class="h-1/2 bg-gray-100 flex items-start px-10 pt-10 z-40"
+      >
+        <p class="clock"></p>
+      </div>
+
+      <div
+        id="preloader-bottom"
+        class="h-1/2 bg-gray-100 flex justify-between items-end px-10 pb-10 z-40"
+      >
+        <p class="text-black">Preparing the magic</p>
+        <p id="percentage" class="text-[248px] italic font-['volgarie']">0%</p>
+      </div>
+    </div>
+
+    <!-- KONTEN UTAMA -->
+
+    <div id="main-content" class="inner">
+      <header
+        class="containers fixed top-0 inset-0 bg-white mx-auto py-8 px-10 z-10 w-full h-fit"
+      >
+        <div class="w-full">
+          <!-- desktop -->
+          <nav class="flex justify-between w-full">
+            <li class="list-none z-10">
+              <span class="clock"></span>
+            </li>
+            <li class="flex gap-2 items-center cursor-pointer">
+              <button
+                id="menuToggle"
+                class="cursor-pointer z-10 transition-opacity duration-500 opacity-100"
+              >
+                Menu
+              </button>
+
+              <div
+                id="hamburgerIcon"
+                class="flex flex-col gap-1 border rounded-full p-2 z-10 transition-all duration-300"
+              >
+                <span
+                  id="line1"
+                  class="h-0.5 w-4 bg-black rounded-lg transition-all duration-300"
+                ></span>
+                <span
+                  id="line2"
+                  class="h-0.5 w-4 bg-black rounded-lg transition-all duration-300"
+                ></span>
+                <span
+                  id="line3"
+                  class="h-0.5 w-4 bg-black rounded-lg transition-all duration-300"
+                ></span>
+              </div>
+            </li>
+          </nav>
+
+          <!-- isi menu hamburger -->
+          <nav
+            id="menuDropdown"
+            class="absolute w-full h-screen bg-white top-0 left-0 transition-all duration-500 ease-in-out opacity-0 scale-95 pointer-events-none"
+          >
+            <ul class="flex items-center h-full px-10">
+              <li class="w-1/2 pr-48 space-y-4">
+                <button
+                  class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-black"
+                >
+                  <span>[01]</span>
+                  <p class="text-[64px]">Work</p>
+                </button>
+                <button
+                  class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-gray-500"
+                >
+                  <span>[02]</span>
+                  <p class="text-[64px]">Studio</p>
+                </button>
+                <button
+                  class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-gray-500"
+                >
+                  <span>[03]</span>
+                  <p class="text-[64px]">Archive</p>
+                </button>
+                <button
+                  class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-gray-500"
+                >
+                  <span>[04]</span>
+                  <p class="text-[64px]">Say hi</p>
+                </button>
+              </li>
+
+              <figure
+                id="imgFigure"
+                class="opacity-0 scale-100 translate-x-0 transition-all duration-700 ease-in-out"
+              >
+                <img id="menuImage" src="img/imgMenu.png" alt="" />
+              </figure>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <section
+        id="zoomSection"
+        class="containers overflow-y-hidden pointer-events-auto mt-52 scrollbar-hide relative !pb-0 will-change-transform"
+      >
+        <div class="flex flex-col justify-between w-full relative group">
+          <!-- Background Atas -->
+          <figure
+            id="bgAtas"
+            class="absolute transition-all -top-96 duration-300 pointer-events-none ease-in-out z-20"
+          >
+            <img src="img/background/bgAtas1.png" alt="" class="w-full" />
+          </figure>
+
+          <!-- Scroll Horizontal -->
+          <div
+            id="horizontalScroll"
+            class="overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide cursor-pointer z-10 relative"
+          >
+            <div class="flex gap-1.5 w-max snap-x snap-mandatory">
+              <figure class="snap-start">
+                <img src="img/img1.png" alt="" class="w-full h-[400px]" />
+              </figure>
+              <figure class="snap-start">
+                <img src="img/img2.png" alt="" class="w-full h-[400px]" />
+              </figure>
+              <figure class="snap-start">
+                <img src="img/img3.png" alt="" class="w-full h-[400px]" />
+              </figure>
+              <figure class="snap-start">
+                <img src="img/img1.png" alt="" class="w-full h-[400px]" />
+              </figure>
+              <figure class="snap-start">
+                <img src="img/img2.png" alt="" class="w-full h-[400px]" />
+              </figure>
+              <figure class="snap-start">
+                <img src="img/img3.png" alt="" class="w-full h-[400px]" />
+              </figure>
+            </div>
+          </div>
+
+          <!-- Background Bawah -->
+          <figure
+            id="bgBawah"
+            class="absolute transition-all -bottom-96 duration-300 pointer-events-none ease-in-out z-20"
+          >
+            <img src="img/background/bgBawah1.png" alt="" class="w-full" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="containers mt-[184px] h-fit">
+        <div
+          class="font-normal text-[248px] w-full flex justify-between items-start"
+        >
+          <p class="font-['Volgarie']">
+            <span>K</span><span>l</span><span>o</span><span>r</span
+            ><span>a</span>
+          </p>
+          <p class="font-['Volgarie']">
+            <span>S</span><span>t</span><span>u</span><span>d</span
+            ><span>i</span><span>o</span>
+          </p>
+        </div>
+      </section>
+
+      <section id="targer1" class="containers">
+        <div class="relative">
+          <figure>
+            <img src="img/background/bg1.png" alt="" />
+          </figure>
+          <div
+            class="flex flex-col justify-between absolute top-[49px] h-full w-full"
+          >
+            <div class="text-white flex justify-between w-full px-11">
+              <div><span>11:23 AM - GMT+7</span></div>
+              <p class="font-['Volgarie']">Klora Studio</p>
+              <span
+                class="relative flex items-center justify-center border border-white rounded-full w-8 h-8 p-1.5"
+              >
+                <span
+                  class="absolute h-0.5 w-3.5 bg-white rotate-45 rounded"
+                ></span>
+                <span
+                  class="absolute h-0.5 w-3.5 bg-white -rotate-45 rounded"
+                ></span>
+              </span>
+            </div>
+
+            <div
+              class="flex justify-between text-white absolute bottom-20 w-full px-10"
+            >
+              <p>The studio</p>
+              <p>20.12.2025</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="targer2" class="containers mt-10">
+        <div class="relative">
+          <figure>
+            <img src="img/background/bg2.png" alt="" />
+          </figure>
+          <div
+            class="flex flex-col justify-between absolute top-[49px] h-full w-full"
+          >
+            <div class="text-white flex justify-between w-full px-11">
+              <div><span>11:23 AM - GMT+7</span></div>
+              <p>Klora Studio</p>
+              <span
+                class="relative flex items-center justify-center border border-white rounded-full w-8 h-8 p-1.5"
+              >
+                <span
+                  class="absolute h-0.5 w-3.5 bg-white rotate-45 rounded"
+                ></span>
+                <span
+                  class="absolute h-0.5 w-3.5 bg-white -rotate-45 rounded"
+                ></span>
+              </span>
+            </div>
+
+            <div
+              class="flex justify-between text-white absolute bottom-20 w-full px-10"
+            >
+              <p>The studio</p>
+              <p>20.12.2025</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="containers mt-24 px-10 py-10">
+        <div class="text-black flex justify-between w-full px-11">
+          <div><span>11:23 AM - GMT+7</span></div>
+          <p>Klora Studio</p>
+          <span
+            class="relative flex items-center justify-center border border-black rounded-full w-8 h-8 p-1.5"
+          >
+            <span
+              class="absolute h-0.5 w-3.5 bg-black rotate-45 rounded"
+            ></span>
+            <span
+              class="absolute h-0.5 w-3.5 bg-black -rotate-45 rounded"
+            ></span>
+          </span>
+        </div>
+
+        <div
+          class="flex justify-between gap-[134px] w-full border-b border-black/10 pb-5"
+        >
+          <div class="grid grid-cols-2 gap-2">
+            <figure><img src="img/img1.png" alt="" /></figure>
+            <figure><img src="img/img1.png" alt="" /></figure>
+            <figure><img src="img/img1.png" alt="" /></figure>
+            <figure><img src="img/img1.png" alt="" /></figure>
+          </div>
+
+          <div class="w-full">
+            <h3 class="text-4xl">The Studio</h3>
+            <div class="flex lg:gap-[171px]">
+              <div>
+                <h4 class="mb-[9px]">Model</h4>
+                <p class="border-b border-black">Kimberly</p>
+                <p class="border-b border-black">Natsha R</p>
+                <p class="border-b border-black">Florance P.</p>
+              </div>
+              <figure>
+                <img src="img/person.png" alt="" />
+              </figure>
+            </div>
+            <p class="text-xs text-[#737373] mt-10">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+              nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
+              tellus elit sed risus. Maecenas eget condimentum velit, sit amet
+              feugiat lectus. Class aptent taciti sociosqu ad litora torquent
+              per conubia nostra, per inceptos himenaeos. Praesent auctor purus
+              luctus enim egestas, ac scelerisque ante pulvinar. Donec ut
+              rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur
+              vel bibendum lorem. Morbi convallis convallis diam sit amet
+              lacinia. Aliquam in elementum tellus.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex justify-between">
+          <div>
+            <h4 class="mb-[9px]">Photographer</h4>
+            <p class="borderPrimry">Jonathan</p>
+            <p class="borderPrimry">Andrea. H</p>
+          </div>
+          <div>
+            <h4 class="mb-[9px]">Photographer</h4>
+            <p class="borderPrimry">Jonathan</p>
+            <p class="borderPrimry">Andrea. H</p>
+          </div>
+          <div>
+            <h4 class="mb-[9px]">Photographer</h4>
+            <p class="borderPrimry">Jonathan</p>
+            <p class="borderPrimry">Andrea. H</p>
+          </div>
+          <div>
+            <h4 class="mb-[9px]">Photographer</h4>
+            <p class="borderPrimry">Jonathan</p>
+            <p class="borderPrimry">Andrea. H</p>
+          </div>
+        </div>
+      </section>
+
+      <footer
+        class="containers border-t border-black/10 flex justify-between mt-28 px-10"
+      >
+        <p>The studio</p>
+        <p>20.12.2025</p>
+      </footer>
+    </div>
+
+    <script>
+      
+      const hamburgerIcon = document.getElementById('hamburgerIcon');
+      const menuToggleText = document.getElementById('menuToggle');
+
+      const line1 = document.getElementById('line1');
+      const line2 = document.getElementById('line2');
+      const line3 = document.getElementById('line3');
+
+      let menuOpen = false;
+
+      function toggleMenu() {
+        menuOpen = !menuOpen;
+
+        // Toggle animasi dropdown menu
+        menuDropdown.classList.toggle('opacity-100');
+        menuDropdown.classList.toggle('opacity-0');
+        menuDropdown.classList.toggle('pointer-events-auto');
+        menuDropdown.classList.toggle('pointer-events-none');
+        menuDropdown.classList.toggle('scale-100');
+
+        // Tombol "Menu" hilang/muncul smooth
+        if (menuOpen) {
+          menuToggleText.classList.remove('opacity-100');
+          menuToggleText.classList.add('opacity-0');
+
+          setTimeout(() => {
+            menuToggleText.classList.add('pointer-events-none');
+          }, 500); // waktu sama dengan duration opacity
+        } else {
+          menuToggleText.classList.remove('pointer-events-none');
+          menuToggleText.classList.remove('opacity-0');
+          menuToggleText.classList.add('opacity-100');
+        }
+
+        // Hamburger ke ikon X dan sebaliknya
+        if (menuOpen) {
+          line1.classList.add('rotate-45', 'translate-y-1.5');
+          line2.classList.add('opacity-0');
+          line3.classList.add('-rotate-45', '-translate-y-1.5');
+        } else {
+          line1.classList.remove('rotate-45', 'translate-y-1.5');
+          line2.classList.remove('opacity-0');
+          line3.classList.remove('-rotate-45', '-translate-y-1.5');
+        }
+
+        // Gambar muncul dari kanan ke kiri setelah 1 detik
+        if (menuOpen) {
+          imgFigure.classList.add('translate-x-full', 'opacity-0');
+          imgFigure.classList.remove('hidden');
+
+          setTimeout(() => {
+            imgFigure.classList.remove('translate-x-full', 'opacity-0');
+            imgFigure.classList.add('translate-x-0', 'opacity-100');
+          }, 1000);
+        } else {
+          imgFigure.classList.remove('translate-x-0', 'opacity-100');
+          imgFigure.classList.add('translate-x-full', 'opacity-0');
+
+          setTimeout(() => {
+            imgFigure.classList.add('hidden');
+          }, 500); // biar transisi selesai baru di-hide
+        }
+      }
+
+      hamburgerIcon.addEventListener('click', toggleMenu);
+      menuToggleText.addEventListener('click', toggleMenu);
+
+      // animasi img menu
+      const menuButtons = document.querySelectorAll('.menu-btn');
+      const imgFigure = document.querySelector('#imgFigure');
+      const menuImage = document.querySelector('#menuImage');
+
+      menuButtons.forEach((button) => {
+        button.addEventListener('mouseover', () => {
+          const label = button.querySelector('p')?.textContent?.trim();
+
+          // Reset warna semua teks
+          menuButtons.forEach((btn) => {
+            btn.classList.remove('text-black');
+            btn.classList.add('text-gray-500');
+
+            const p = btn.querySelector('p');
+            if (p) {
+              p.classList.remove('text-black');
+              p.classList.add('text-gray-500');
+            }
+          });
+
+          // Warna teks aktif jadi hitam
+          button.classList.remove('text-gray-500');
+          button.classList.add('text-black');
+          const activeText = button.querySelector('p');
+          if (activeText) {
+            activeText.classList.remove('text-gray-500');
+            activeText.classList.add('text-black');
+          }
+
+          // Step 1: Gambar lama zoom out + fade out
+          imgFigure.classList.remove(
+            'scale-100',
+            'opacity-100',
+            'translate-x-0'
+          );
+          imgFigure.classList.add('scale-110', 'opacity-0');
+
+          // Step 2: Setelah animasi zoom out, ganti gambar dan reset posisi awal dari kanan
+          setTimeout(() => {
+            switch (label) {
+              case 'Work':
+                menuImage.src = 'img/imgMenu.png';
+                menuImage.style.transform = 'rotate(0deg)';
+                break;
+
+              case 'Studio':
+                menuImage.src = 'img/imgMenu2.png';
+                menuImage.style.transform = 'rotate(-25deg)';
+                break;
+
+              case 'Archive':
+                menuImage.src = 'img/imgMenu3.png';
+                menuImage.style.transition = 'transform 0.5s ease';
+                menuImage.style.transform = 'rotate(-15deg)';
+                break;
+
+              case 'Say hi':
+                menuImage.src = 'img/imgMenu05.png';
+                menuImage.style.transform = 'rotate(-20deg)';
+                break;
+            }
+
+            // Reset posisi ke kanan
+            imgFigure.classList.remove('scale-110');
+            imgFigure.classList.add('translate-x-0');
+
+            // Step 3: Masukkan gambar baru dari kanan ke tengah + fade in
+            setTimeout(() => {
+              imgFigure.classList.remove('translate-x-full', 'opacity-0');
+              imgFigure.classList.add(
+                'translate-x-0',
+                'scale-100',
+                'opacity-100'
+              );
+            }, 50);
+          }, 500);
+        });
+      });
+    </script>
+
+    <script src="src/main.js"></script>
+    <!-- <script src="src/counter.js"></script> -->
+    <script type="module" src="/src/counter.js"></script>
+  </body>
+</html>
