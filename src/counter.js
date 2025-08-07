@@ -202,23 +202,23 @@ menuButtons.forEach((button) => {
     setTimeout(() => {
       switch (label) {
         case 'Work':
-          menuImage.src = 'img/imgMenu.png';
+          menuImage.src = 'public/img/imgMenu.png';
           menuImage.style.transform = 'rotate(0deg)';
           break;
 
         case 'Studio':
-          menuImage.src = 'img/imgMenu2.png';
+          menuImage.src = 'public/img/imgMenu2.png';
           menuImage.style.transform = 'rotate(-25deg)';
           break;
 
         case 'Archive':
-          menuImage.src = 'img/imgMenu3.png';
+          menuImage.src = 'public/img/imgMenu3.png';
           menuImage.style.transition = 'transform 0.5s ease';
           menuImage.style.transform = 'rotate(-15deg)';
           break;
 
         case 'Say hi':
-          menuImage.src = 'img/imgMenu05.png';
+          menuImage.src = 'public/img/imgMenu05.png';
           menuImage.style.transform = 'rotate(-20deg)';
           break;
       }
