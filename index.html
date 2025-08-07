@@ -37,7 +37,7 @@
 
   <body>
     <!-- PRELOADER -->
-    <div id="preloader">
+    <!-- <div id="preloader">
       <div
         class="absolute inset-0 flex justify-between px-4 z-50 pointer-events-none"
       >
@@ -71,7 +71,7 @@
         <p class="text-black">Preparing the magic</p>
         <p id="percentage" class="text-[248px] italic font-['volgarie']">0%</p>
       </div>
-    </div>
+    </div> -->
 
     <!-- KONTEN UTAMA -->
 
@@ -123,25 +123,25 @@
                 <button
                   class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-black"
                 >
-                  <span>[01]</span>
+                  <p>[01]</p>
                   <p class="text-[64px]">Work</p>
                 </button>
                 <button
                   class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-gray-500"
                 >
-                  <span>[02]</span>
+                  <p>[02]</p>
                   <p class="text-[64px]">Studio</p>
                 </button>
                 <button
                   class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-gray-500"
                 >
-                  <span>[03]</span>
+                  <p>[03]</p>
                   <p class="text-[64px]">Archive</p>
                 </button>
                 <button
                   class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-gray-500"
                 >
-                  <span>[04]</span>
+                  <p>[04]</p>
                   <p class="text-[64px]">Say hi</p>
                 </button>
               </li>
@@ -167,11 +167,7 @@
             id="bgAtas"
             class="absolute transition-all -top-96 duration-300 pointer-events-none ease-in-out z-20"
           >
-            <img
-              src="/img/background/bgAtas1.png"
-              alt=""
-              class="w-full"
-            />
+            <img src="/img/background/bgAtas1.png" alt="" class="w-full" />
           </figure>
 
           <!-- Scroll Horizontal -->
@@ -184,42 +180,53 @@
                 <img
                   src="/img/img1.png"
                   alt=""
-                  class="w-full h-[400px]"
+                  class="w-full h-[400px] img-click"
+                  data-target="target1"
                 />
               </figure>
+
               <figure class="snap-start">
                 <img
                   src="/img/img2.png"
                   alt=""
-                  class="w-full h-[400px]"
+                  class="w-full h-[400px] img-click"
+                  data-target="target2"
                 />
               </figure>
+
               <figure class="snap-start">
                 <img
                   src="/img/img3.png"
                   alt=""
-                  class="w-full h-[400px]"
+                  class="w-full h-[400px] img-click"
+                  data-target="target2"
                 />
               </figure>
+
               <figure class="snap-start">
                 <img
                   src="/img/img1.png"
                   alt=""
-                  class="w-full h-[400px]"
+                  class="w-full h-[400px] img-click"
+                  data-target="target1"
                 />
               </figure>
+
               <figure class="snap-start">
                 <img
                   src="/img/img2.png"
                   alt=""
-                  class="w-full h-[400px]"
+                  class="w-full h-[400px] img-click"
+                  data-target="target2"
                 />
               </figure>
+
               <figure class="snap-start">
                 <img
                   src="/img/img3.png"
                   alt=""
-                  class="w-full h-[400px]"
+                  class="w-full h-[400px] img-click"
+                  data-target="target2"
                 />
               </figure>
             </div>
@@ -230,11 +237,7 @@
             id="bgBawah"
             class="absolute transition-all -bottom-96 duration-300 pointer-events-none ease-in-out z-20"
           >
-            <img
-              src="/img/background/bgBawah1.png"
-              alt=""
-              class="w-full"
-            />
+            <img src="/img/background/bgBawah1.png" alt="" class="w-full" />
           </figure>
         </div>
       </section>
@@ -254,7 +257,7 @@
         </div>
       </section>
 
-      <section id="targer1" class="containers">
+      <section id="target1" class="containers">
         <div class="relative">
           <figure>
             <img src="/img/background/bg1.png" alt="" />
@@ -287,7 +290,7 @@
         </div>
       </section>
 
-      <section id="targer2" class="containers mt-10">
+      <section id="target2" class="containers mt-10">
         <div class="relative">
           <figure>
             <img src="/img/background/bg2.png" alt="" />
@@ -323,7 +326,7 @@
       <section class="containers mt-24 px-10 py-10">
         <div class="text-black flex justify-between w-full px-11">
           <div><span>11:23 AM - GMT+7</span></div>
-          <p>Klora Studio</p>
+          <p class="text-2xl font-['volgarie']">Klora Studio</p>
           <span
             class="relative flex items-center justify-center border border-black rounded-full w-8 h-8 p-1.5"
           >
@@ -336,26 +339,50 @@
           </span>
         </div>
 
-        <div
-          class="flex justify-between gap-[134px] w-full border-b border-black/10 pb-5"
-        >
-          <div class="grid grid-cols-2 gap-2">
-            <figure><img src="/img/img1.png" alt="" /></figure>
-            <figure><img src="/img/img1.png" alt="" /></figure>
-            <figure><img src="/img/img1.png" alt="" /></figure>
-            <figure><img src="/img/img1.png" alt="" /></figure>
+        <div class="flex w-full border-b border-black/10 py-10">
+          <div class="grid grid-cols-2 gap-2 w-full max-w-[671px]">
+            <figure>
+              <img src="/img/img1.png" alt="" class="h-full w-full" />
+            </figure>
+            <figure>
+              <img src="/img/img2.png" alt="" class="h-full w-full" />
+            </figure>
+            <figure>
+              <img src="/img/img1.png" alt="" class="h-full w-full" />
+            </figure>
+            <figure>
+              <img src="/img/img2.png" alt="" class="h-full w-full" />
+            </figure>
           </div>
 
-          <div class="w-full">
-            <h3 class="text-4xl">The Studio</h3>
+          <div class="w-full pl-32">
+            <h3 class="text-[64px]">The Studio</h3>
             <div class="flex lg:gap-[171px]">
               <div>
                 <h4 class="mb-[9px]">Model</h4>
-                <p class="border-b border-black">Kimberly</p>
-                <p class="border-b border-black">Natsha R</p>
-                <p class="border-b border-black">Florance P.</p>
+                <div class="flex cursor-pointer">
+                  <span class="-translate-x-24">[1]</span>
+                  <p class="border-b border-black -translate-x-4.5">
+                    Kimberley J
+                  </p>
+                </div>
+
+                <div class="flex cursor-pointer">
+                  <span class="-translate-x-24">[2]</span>
+                  <p class="border-b border-black -translate-x-4.5">
+                    Natasha R.
+                  </p>
+                </div>
+
+                <div class="flex cursor-pointer">
+                  <span class="-translate-x-24">[3]</span>
+                  <p class="border-b border-black -translate-x-4.5">
+                    Florance P.
+                  </p>
+                </div>
               </div>
-              <figure>
+
+              <figure class="pt-14">
                 <img src="/img/person.png" alt="" />
               </figure>
             </div>

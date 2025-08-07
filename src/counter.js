@@ -59,7 +59,6 @@ function resetBackgrounds() {
   bgBawah.classList.remove('-bottom-11');
 }
 
-// Deteksi scroll vertikal saja → baru munculkan bg
 function handleAnyScroll(e) {
   const isMostlyVertical = Math.abs(e.deltaY) > Math.abs(e.deltaX);
 
@@ -73,10 +72,13 @@ function handleAnyScroll(e) {
   }
 }
 
-// Event scroll horizontal → intercept scroll vertikal
-horiz.addEventListener(
+// --- Tangani wheel di seluruh halaman ---
+let isInsideHorizontal = false;
+
+document.addEventListener(
   'wheel',
   (e) => {
+    const isHoveringHoriz = horiz.contains(e.target);
     const deltaX = e.deltaY * 0.4;
     const isScrollingDown = e.deltaY > 0;
     const isScrollingUp = e.deltaY < 0;
@@ -84,15 +86,25 @@ horiz.addEventListener(
     const atEnd = isAtEnd(horiz);
     const atStart = isAtStart(horiz);
 
-    if (!(atEnd && isScrollingDown) && !(atStart && isScrollingUp)) {
-      e.preventDefault();
-      horiz.scrollBy({ left: deltaX });
-      lenis.stop();
-    } else {
-      lenis.start();
-    }
+    if (isHoveringHoriz) {
+      isInsideHorizontal = true;
 
-    handleAnyScroll(e); // hanya munculkan bg saat scroll vertikal
+      if (!(atEnd && isScrollingDown) && !(atStart && isScrollingUp)) {
+        e.preventDefault();
+        horiz.scrollBy({ left: deltaX });
+        lenis.stop();
+      } else {
+        lenis.start(); // mulai scroll normal kalau sudah mentok
+      }
+
+      handleAnyScroll(e); // munculkan background scroll
+    } else {
+      // scroll terjadi di luar area horizontal
+      if (isInsideHorizontal) {
+        lenis.start(); // pastikan Lenis hidup kembali
+        isInsideHorizontal = false;
+      }
+    }
   },
   { passive: false }
 );
@@ -171,34 +183,35 @@ const menuImage = document.querySelector('#menuImage');
 
 menuButtons.forEach((button) => {
   button.addEventListener('mouseover', () => {
-    const label = button.querySelector('p')?.textContent?.trim();
+    const paragraphs = button.querySelectorAll('p');
+    const label = paragraphs[1]?.textContent?.trim();
 
-    // Reset warna semua teks
+    // Reset semua tombol jadi abu-abu
     menuButtons.forEach((btn) => {
       btn.classList.remove('text-black');
       btn.classList.add('text-gray-500');
 
-      const p = btn.querySelector('p');
-      if (p) {
+      const ps = btn.querySelectorAll('p');
+      ps.forEach((p) => {
         p.classList.remove('text-black');
         p.classList.add('text-gray-500');
-      }
+      });
     });
 
-    // Warna teks aktif jadi hitam
+    //Aktifkan warna hitam pada tombol yang di-hover
     button.classList.remove('text-gray-500');
     button.classList.add('text-black');
-    const activeText = button.querySelector('p');
-    if (activeText) {
-      activeText.classList.remove('text-gray-500');
-      activeText.classList.add('text-black');
-    }
 
-    // Step 1: Gambar lama zoom out + fade out
+    const ps = button.querySelectorAll('p');
+    ps.forEach((p) => {
+      p.classList.remove('text-gray-500');
+      p.classList.add('text-black');
+    });
+
+    // Ganti gambar dengan animasi
     imgFigure.classList.remove('scale-100', 'opacity-100', 'translate-x-0');
     imgFigure.classList.add('scale-110', 'opacity-0');
 
-    // Step 2: Setelah animasi zoom out, ganti gambar dan reset posisi awal dari kanan
     setTimeout(() => {
       switch (label) {
         case 'Work':
@@ -208,7 +221,7 @@ menuButtons.forEach((button) => {
 
         case 'Studio':
           menuImage.src = '/img/imgMenu2.png';
-          menuImage.style.transform = 'rotate(-25deg)';
+          menuImage.style.transform = 'rotate(-20deg)';
           break;
 
         case 'Archive':
@@ -223,11 +236,9 @@ menuButtons.forEach((button) => {
           break;
       }
 
-      // Reset posisi ke kanan
       imgFigure.classList.remove('scale-110');
       imgFigure.classList.add('translate-x-0');
 
-      // Step 3: Masukkan gambar baru dari kanan ke tengah + fade in
       setTimeout(() => {
         imgFigure.classList.remove('translate-x-full', 'opacity-0');
         imgFigure.classList.add('translate-x-0', 'scale-100', 'opacity-100');

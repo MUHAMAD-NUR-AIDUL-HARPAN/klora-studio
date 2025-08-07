@@ -130,18 +130,44 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // scroll img to section
-document.querySelectorAll('.img-click').forEach((img) => {
-  img.addEventListener('click', () => {
-    const targetId = img.getAttribute('data-target');
-    const targetSection = document.getElementById(targetId);
-    if (targetSection) {
-      const offset = 99;
-      const elementPosition =
-        targetSection.getBoundingClientRect().top + window.pageYOffset;
-      window.scrollTo({
-        top: elementPosition - offset,
-        behavior: 'smooth',
-      });
+function smoothScrollTo(targetY, duration = 1200, offset = 0) {
+  const startY = window.pageYOffset;
+  const distanceY = targetY - startY - offset;
+  let startTime = null;
+
+  function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  function animation(currentTime) {
+    if (!startTime) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const progress = Math.min(timeElapsed / duration, 1);
+    const ease = easeInOutQuad(progress);
+    window.scrollTo(0, startY + distanceY * ease);
+
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
     }
+  }
+
+  requestAnimationFrame(animation);
+}
+
+// Event listener untuk semua gambar
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.img-click').forEach((img) => {
+    img.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const targetId = img.getAttribute('data-target');
+      const targetSection = document.getElementById(targetId);
+
+      if (targetSection) {
+        const elementY =
+          targetSection.getBoundingClientRect().top + window.pageYOffset;
+        smoothScrollTo(elementY, 1200, 99); // durasi 1.2 detik, offset 99px
+      }
+    });
   });
 });
