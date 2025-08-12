@@ -40,9 +40,7 @@ function toggleLenisScroll(enable) {
 export { lenis, toggleLenisScroll };
 
 // swiper.js
-// swiper.js
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
-// import { toggleLenisScroll } from './lenis.js'; // pastikan import dari file lenis
 
 const bgAtas = document.getElementById('bgAtas');
 const bgBawah = document.getElementById('bgBawah');
@@ -87,16 +85,16 @@ const swiper = new Swiper('#horizontalScroll', {
         bgBawah.classList.remove('-bottom-11');
       }, 300);
 
-      // Cek apakah Swiper sudah mentok kanan atau kiri
+      // Cek Swiper sudah mentok kanan atau kiri
       const isBeginning = swiperInstance.isBeginning;
       const isEnd = swiperInstance.isEnd;
 
       if ((isBeginning || isEnd) && isInSection) {
-        toggleLenisScroll(true); // Aktifkan scroll vertikal
+        toggleLenisScroll(true);
       } else if (isInSection) {
-        toggleLenisScroll(false); // Kunci scroll vertikal saat belum mentok
+        toggleLenisScroll(false);
       } else {
-        toggleLenisScroll(true); // Di luar section, scroll vertikal selalu aktif
+        toggleLenisScroll(true);
       }
     },
     touchEnd() {
@@ -116,7 +114,7 @@ section.addEventListener('pointerleave', () => {
 window.addEventListener(
   'wheel',
   (e) => {
-    // coba cari elemen di posisi kursor; fallback ke e.target
+
     const el =
       typeof e.clientX === 'number' && typeof e.clientY === 'number'
         ? document.elementFromPoint(e.clientX, e.clientY) || e.target
