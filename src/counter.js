@@ -60,7 +60,7 @@ observer.observe(section);
 
 const swiper = new Swiper('#horizontalScroll', {
   slidesPerView: 3,
-  spaceBetween: 2,
+  spaceBetween: 4,
   // grabCursor: true,
   mousewheel: true,
   freeMode: true,
@@ -114,7 +114,6 @@ section.addEventListener('pointerleave', () => {
 window.addEventListener(
   'wheel',
   (e) => {
-
     const el =
       typeof e.clientX === 'number' && typeof e.clientY === 'number'
         ? document.elementFromPoint(e.clientX, e.clientY) || e.target

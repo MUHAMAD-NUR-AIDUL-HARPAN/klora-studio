@@ -74,17 +74,17 @@ document.addEventListener('DOMContentLoaded', () => {
         // });
 
         // Zoom + fade in section
-        gsap.fromTo(
-          elements.zoomSection,
-          { scale: 0.96, opacity: 0 },
-          {
-            scale: 1,
-            opacity: 1,
-            duration: 2,
-            ease: 'power4.out',
-            // delay: 0.1,
-          }
-        );
+        // gsap.fromTo(
+        //   elements.zoomSection,
+        //   { scale: 0.96, opacity: 0 },
+        //   {
+        //     scale: 1,
+        //     opacity: 1,
+        //     duration: 2,
+        //     ease: 'power4.out',
+        //     // delay: 0.1,
+        //   }
+        // );
       },
     });
 
