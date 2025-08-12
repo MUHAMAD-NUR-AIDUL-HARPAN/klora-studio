@@ -13,13 +13,17 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.35/bundled/lenis.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.35/bundled/lenis.min.js"></script>
-    <!-- Di bagian <head> -->
+
+    <!-- Sebelum </body> -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
 
-    <!-- Sebelum </body> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <style>
@@ -37,7 +41,8 @@
 
   <body>
     <!-- PRELOADER -->
-    <div id="preloader">
+
+    <!-- <div id="preloader">
       <div
         class="absolute inset-0 flex justify-between px-4 z-50 pointer-events-none"
       >
@@ -71,13 +76,13 @@
         <p class="text-black">Preparing the magic</p>
         <p id="percentage" class="text-[248px] italic font-['volgarie']">0%</p>
       </div>
-    </div>
+    </div> -->
 
     <!-- KONTEN UTAMA -->
 
-    <div id="main-content" class="inner">
+    <div id="main-content">
       <header
-        class="containers fixed top-0 inset-0 bg-white mx-auto py-8 px-10 z-10 w-full h-fit"
+        class="containers fixed top-0 inset-0 bg-white mx-auto py-6 px-10 z-10 w-full h-fit"
       >
         <div class="w-full">
           <!-- desktop -->
@@ -159,7 +164,7 @@
 
       <section
         id="zoomSection"
-        class="containers overflow-y-hidden pointer-events-auto mt-52 scrollbar-hide relative !pb-0 will-change-transform"
+        class="containers overflow-y-hidden pointer-events-auto cursor-pointer mt-[204px] relative will-change-transform"
       >
         <div class="flex flex-col justify-between w-full relative group">
           <!-- Background Atas -->
@@ -170,63 +175,65 @@
             <img src="/img/background/bgAtas1.png" alt="" class="w-full" />
           </figure>
 
-          <!-- Scroll Horizontal -->
+          <!-- Swiper Horizontal Scroll -->
           <div
             id="horizontalScroll"
-            class="overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide cursor-pointer z-10 relative"
+            class="swiper z-10 relative w-full max-w-full overflow-x-auto"
           >
-            <div class="flex gap-1.5 w-max snap-x snap-mandatory">
-              <figure class="snap-start">
+            <div class="swiper-wrapper">
+              <!-- Slide -->
+
+              <figure class="swiper-slide w-full">
                 <img
                   src="/img/img1.png"
                   alt=""
-                  class="w-full h-[400px] img-click"
-                  data-target="target1"
+                  class="h-[400px] object-cover w-full img-click"
+                  data-target="target2"
                 />
               </figure>
 
-              <figure class="snap-start">
+              <figure class="swiper-slide w-full">
                 <img
                   src="/img/img2.png"
                   alt=""
-                  class="w-full h-[400px] img-click"
+                  class="h-[400px] object-cover img-click w-full"
                   data-target="target2"
                 />
               </figure>
 
-              <figure class="snap-start">
-                <img
-                  src="/img/img3.png"
-                  alt=""
-                  class="w-full h-[400px] img-click"
-                  data-target="target2"
-                />
-              </figure>
-
-              <figure class="snap-start">
+              <figure class="swiper-slide w-full">
                 <img
                   src="/img/img1.png"
                   alt=""
-                  class="w-full h-[400px] img-click"
-                  data-target="target1"
+                  class="h-[400px] object-cover w-full img-click"
+                  data-target="target2"
                 />
               </figure>
 
-              <figure class="snap-start">
+              <figure class="swiper-slide w-full">
                 <img
                   src="/img/img2.png"
                   alt=""
-                  class="w-full h-[400px] img-click"
+                  class="h-[400px] object-cover img-click w-full"
                   data-target="target2"
                 />
               </figure>
 
-              <figure class="snap-start">
+              <figure class="swiper-slide w-full">
                 <img
-                  src="/img/img3.png"
+                  src="/img/img1.png"
                   alt=""
-                  class="w-full h-[400px] img-click"
+                  class="h-[400px] object-cover img-click w-full"
                   data-target="target2"
+                />
+              </figure>
+
+              <figure class="swiper-slide w-full">
+                <img
+                  src="/img/img2.png"
+                  alt=""
+                  class="h-[400px] object-cover img-click w-full"
+                  data-target="target3"
                 />
               </figure>
             </div>
@@ -242,15 +249,15 @@
         </div>
       </section>
 
-      <section class="containers mt-[184px] h-fit">
+      <section class="containers mt-[174px] h-fit">
         <div
           class="font-normal text-[248px] w-full flex justify-between items-start"
         >
-          <p class="font-['Volgarie']">
+          <p class="font-['Volgarie'] text-[#303931] inline-block leading-none">
             <span>K</span><span>l</span><span>o</span><span>r</span
             ><span>a</span>
           </p>
-          <p class="font-['Volgarie']">
+          <p class="font-['Volgarie'] text-[#303931] inline-block leading-none">
             <span>S</span><span>t</span><span>u</span><span>d</span
             ><span>i</span><span>o</span>
           </p>
@@ -356,27 +363,31 @@
           </div>
 
           <div class="w-full pl-32">
-            <h3 class="text-[64px]">The Studio</h3>
+            <h3 class="text-[64px] italic">The Studio</h3>
             <div class="flex lg:gap-[171px]">
               <div>
                 <h4 class="mb-[9px]">Model</h4>
-                <div class="flex cursor-pointer">
+                <div class="flex cursor-pointer text-black">
                   <span class="-translate-x-24">[1]</span>
-                  <p class="border-b border-black -translate-x-4.5">
+                  <p class="border-b border-black -translate-x-4.5 ">
                     Kimberley J
                   </p>
                 </div>
 
-                <div class="flex cursor-pointer">
+                <div class="flex cursor-pointer text-primary">
                   <span class="-translate-x-24">[2]</span>
-                  <p class="border-b border-black -translate-x-4.5">
+                  <p
+                    class="border-b border-primary -translate-x-4.5"
+                  >
                     Natasha R.
                   </p>
                 </div>
 
-                <div class="flex cursor-pointer">
+                <div class="flex cursor-pointer text-primary">
                   <span class="-translate-x-24">[3]</span>
-                  <p class="border-b border-black -translate-x-4.5">
+                  <p
+                    class="border-b border-primary -translate-x-4.5 "
+                  >
                     Florance P.
                   </p>
                 </div>
@@ -386,7 +397,7 @@
                 <img src="/img/person.png" alt="" />
               </figure>
             </div>
-            <p class="text-xs text-[#737373] mt-10">
+            <p class="text-xs text-primary mt-10 leading-[1.6]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
               turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
               nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
@@ -402,23 +413,23 @@
         </div>
 
         <div class="flex justify-between">
-          <div>
-            <h4 class="mb-[9px]">Photographer</h4>
+          <div class="text-primary">
+            <h4 class="mb-[9px] text-black">Photographer</h4>
             <p class="borderPrimry">Jonathan</p>
             <p class="borderPrimry">Andrea. H</p>
           </div>
-          <div>
-            <h4 class="mb-[9px]">Photographer</h4>
+          <div class="text-primary">
+            <h4 class="mb-[9px] text-black">Photographer</h4>
             <p class="borderPrimry">Jonathan</p>
             <p class="borderPrimry">Andrea. H</p>
           </div>
-          <div>
-            <h4 class="mb-[9px]">Photographer</h4>
+          <div class="text-primary">
+            <h4 class="mb-[9px] text-black">Photographer</h4>
             <p class="borderPrimry">Jonathan</p>
             <p class="borderPrimry">Andrea. H</p>
           </div>
-          <div>
-            <h4 class="mb-[9px]">Photographer</h4>
+          <div class="text-primary">
+            <h4 class="mb-[9px] text-black">Photographer</h4>
             <p class="borderPrimry">Jonathan</p>
             <p class="borderPrimry">Andrea. H</p>
           </div>

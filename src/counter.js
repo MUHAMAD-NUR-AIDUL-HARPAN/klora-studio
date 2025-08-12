@@ -12,101 +12,135 @@ setInterval(() => {
   });
 }, 1000);
 
+// lennis
 import Lenis from '@studio-freight/lenis';
 
-const horiz = document.getElementById('horizontalScroll');
-const bgAtas = document.getElementById('bgAtas');
-const bgBawah = document.getElementById('bgBawah');
-
-const RESET_DELAY = 500;
-let resetTimer = null;
-
-// Inisialisasi Lenis
 const lenis = new Lenis({
   duration: 2,
   easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
   smooth: true,
 });
 
+// Jalankan raf
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);
 }
 requestAnimationFrame(raf);
 
-// Fungsi bantu
-function isAtEnd(element) {
-  return element.scrollLeft + element.offsetWidth >= element.scrollWidth - 1;
-}
-
-function isAtStart(element) {
-  return element.scrollLeft <= 0;
-}
-
-function activateBackgrounds() {
-  bgAtas.classList.remove('-top-96');
-  bgAtas.classList.add('-top-11');
-
-  bgBawah.classList.remove('-bottom-96');
-  bgBawah.classList.add('-bottom-11');
-}
-
-function resetBackgrounds() {
-  bgAtas.classList.add('-top-96');
-  bgAtas.classList.remove('-top-11');
-
-  bgBawah.classList.add('-bottom-96');
-  bgBawah.classList.remove('-bottom-11');
-}
-
-function handleAnyScroll(e) {
-  const isMostlyVertical = Math.abs(e.deltaY) > Math.abs(e.deltaX);
-
-  if (isMostlyVertical) {
-    activateBackgrounds();
-
-    if (resetTimer) clearTimeout(resetTimer);
-    resetTimer = setTimeout(() => {
-      resetBackgrounds();
-    }, RESET_DELAY);
+// Export lenis dan fungsi untuk enable/disable lenis scroll
+function toggleLenisScroll(enable) {
+  if (enable) {
+    lenis.start();
+  } else {
+    lenis.stop();
   }
 }
 
-// --- Tangani wheel di seluruh halaman ---
-let isInsideHorizontal = false;
+export { lenis, toggleLenisScroll };
 
-document.addEventListener(
+// swiper.js
+// swiper.js
+import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+// import { toggleLenisScroll } from './lenis.js'; // pastikan import dari file lenis
+
+const bgAtas = document.getElementById('bgAtas');
+const bgBawah = document.getElementById('bgBawah');
+
+let isInSection = false;
+
+const section = document.querySelector('#zoomSection');
+const observer = new IntersectionObserver(
+  ([entry]) => {
+    isInSection = entry.isIntersecting;
+    // Aktifkan scroll vertikal saat tidak di dalam section
+    if (!isInSection) toggleLenisScroll(true);
+  },
+  { threshold: 0.1 }
+);
+observer.observe(section);
+
+const swiper = new Swiper('#horizontalScroll', {
+  slidesPerView: 3,
+  spaceBetween: 2,
+  // grabCursor: true,
+  mousewheel: true,
+  freeMode: true,
+  on: {
+    touchStart() {
+      // Saat mulai menggeser swiper, nonaktifkan scroll vertikal
+      if (isInSection) toggleLenisScroll(false);
+    },
+    setTranslate(swiperInstance) {
+      // Tampilkan efek background
+      bgAtas.classList.remove('-top-96');
+      bgAtas.classList.add('-top-11');
+      bgBawah.classList.remove('-bottom-96');
+      bgBawah.classList.add('-bottom-11');
+
+      // Sembunyikan kembali setelah delay
+      clearTimeout(window._scrollTimeout);
+      window._scrollTimeout = setTimeout(() => {
+        bgAtas.classList.add('-top-96');
+        bgAtas.classList.remove('-top-11');
+        bgBawah.classList.add('-bottom-96');
+        bgBawah.classList.remove('-bottom-11');
+      }, 300);
+
+      // Cek apakah Swiper sudah mentok kanan atau kiri
+      const isBeginning = swiperInstance.isBeginning;
+      const isEnd = swiperInstance.isEnd;
+
+      if ((isBeginning || isEnd) && isInSection) {
+        toggleLenisScroll(true); // Aktifkan scroll vertikal
+      } else if (isInSection) {
+        toggleLenisScroll(false); // Kunci scroll vertikal saat belum mentok
+      } else {
+        toggleLenisScroll(true); // Di luar section, scroll vertikal selalu aktif
+      }
+    },
+    touchEnd() {
+      if (!isInSection) toggleLenisScroll(true);
+    },
+  },
+});
+
+// setelah observer.observe(section);
+section.addEventListener('pointerleave', () => {
+  // segera aktifkan Lenis saat pointer benar-benar meninggalkan section
+  toggleLenisScroll(true);
+});
+
+// jika user scroll (wheel) dan posisi pointer tidak berada di dalam section,
+// pastikan Lenis diaktifkan (cover trackpad / wheel yang dimulai di luar)
+window.addEventListener(
   'wheel',
   (e) => {
-    const isHoveringHoriz = horiz.contains(e.target);
-    const deltaX = e.deltaY * 0.4;
-    const isScrollingDown = e.deltaY > 0;
-    const isScrollingUp = e.deltaY < 0;
+    // coba cari elemen di posisi kursor; fallback ke e.target
+    const el =
+      typeof e.clientX === 'number' && typeof e.clientY === 'number'
+        ? document.elementFromPoint(e.clientX, e.clientY) || e.target
+        : e.target;
 
-    const atEnd = isAtEnd(horiz);
-    const atStart = isAtStart(horiz);
-
-    if (isHoveringHoriz) {
-      isInsideHorizontal = true;
-
-      if (!(atEnd && isScrollingDown) && !(atStart && isScrollingUp)) {
-        e.preventDefault();
-        horiz.scrollBy({ left: deltaX });
-        lenis.stop();
-      } else {
-        lenis.start(); // mulai scroll normal kalau sudah mentok
-      }
-
-      handleAnyScroll(e); // munculkan background scroll
-    } else {
-      // scroll terjadi di luar area horizontal
-      if (isInsideHorizontal) {
-        lenis.start(); // pastikan Lenis hidup kembali
-        isInsideHorizontal = false;
-      }
+    if (!section.contains(el)) {
+      toggleLenisScroll(true);
     }
   },
-  { passive: false }
+  { passive: true, capture: true }
+);
+
+// untuk perangkat sentuh: jika touchstart terjadi di luar section -> aktifkan Lenis
+window.addEventListener(
+  'touchstart',
+  (e) => {
+    const t = e.touches && e.touches[0];
+    if (!t) return;
+    const el = document.elementFromPoint(t.clientX, t.clientY) || e.target;
+    if (!section.contains(el)) {
+      toggleLenisScroll(true);
+    }
+  },
+  { passive: true, capture: true }
 );
 
 // humburger + animasi img

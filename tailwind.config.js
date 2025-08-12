@@ -3,9 +3,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: {
-          primary: '#AEA88E',
-        },
+        primary: '#AEA88E',
       },
       fontFamily: {
         volgarie: ['Volgarie', 'cursive'],

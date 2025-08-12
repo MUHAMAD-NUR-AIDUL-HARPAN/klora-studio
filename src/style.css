@@ -1,11 +1,13 @@
 @import 'tailwindcss';
 
-/* :root {
-  --color-primary: 174 168 142;
-}
+@import "tailwindcss";
+
 @theme {
-  --color-primary: rgb(var(--color-primary));
-} */
+  --color-primary: #AEA88E;
+  --font-volgarie: "Volgarie", cursive;
+}
+
+
 
 @layer utilities {
   .clip-slanted {
