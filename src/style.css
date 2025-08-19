@@ -1,13 +1,23 @@
 @import 'tailwindcss';
 
-@import "tailwindcss";
-
 @theme {
-  --color-primary: #AEA88E;
-  --font-volgarie: "Volgarie", cursive;
+  --color-primary: #aea88e;
+  --font-volgarie: 'Volgarie', cursive;
+}
+@layer base {
+  .container {
+    @apply mx-auto px-4;
+    max-width: 1440px;
+    width: 100%;
+  }
 }
 
-
+@layer base {
+  .container-no-padding {
+    @apply mx-auto px-0;
+    max-width: 1440px;
+  }
+}
 
 @layer utilities {
   .clip-slanted {
@@ -113,20 +123,32 @@ html::-webkit-scrollbar {
 }
 
 
-/* .opacity-0 {
-  opacity: 0;
-}
-.opacity-100 {
-  opacity: 1;
-}
-.translate-x-0 {
-  transform: translateX(0);
-}
-.-translate-x-full {
-  transform: translateX(-100%);
-} */
-
 html.lenis {
   scroll-behavior: auto !important;
 }
 
+#popup {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  opacity: 0;
+  transform: scale(0.40);
+}
+
+#popup.show {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+#person-img {
+  transition: opacity 0.4s ease-in-out;
+}
+
+/* Warna teks aktif */
+.active {
+  color: black !important;
+}
+
+/* Border aktif */
+.active p {
+  border-color: black !important;
+}

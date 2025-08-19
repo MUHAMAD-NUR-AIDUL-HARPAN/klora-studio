@@ -62,8 +62,14 @@ const swiper = new Swiper('#horizontalScroll', {
   slidesPerView: 3,
   spaceBetween: 4,
   // grabCursor: true,
-  mousewheel: true,
-  freeMode: true,
+  mousewheel: {
+    sensitivity: 0.4, // default 1, lebih kecil = scroll lebih berat
+  },
+  freeMode: {
+    momentum: true, // aktifkan momentum untuk smooth
+    momentumRatio: 0.4, // default 1, lebih kecil = lebih berat
+    momentumVelocityRatio: 0.4, // kontrol kecepatan momentum
+  },
   on: {
     touchStart() {
       // Saat mulai menggeser swiper, nonaktifkan scroll vertikal
@@ -105,7 +111,6 @@ const swiper = new Swiper('#horizontalScroll', {
 
 // setelah observer.observe(section);
 section.addEventListener('pointerleave', () => {
-  // segera aktifkan Lenis saat pointer benar-benar meninggalkan section
   toggleLenisScroll(true);
 });
 

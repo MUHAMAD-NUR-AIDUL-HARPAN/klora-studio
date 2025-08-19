@@ -39,10 +39,9 @@
     </style>
   </head>
 
-  <body>
+  <body class="">
     <!-- PRELOADER -->
-
-    <div id="preloader">
+    <!-- <div id="preloader">
       <div
         class="absolute inset-0 flex justify-between px-4 z-50 pointer-events-none"
       >
@@ -76,13 +75,12 @@
         <p class="text-black">Preparing the magic</p>
         <p id="percentage" class="text-[248px] italic font-['volgarie']">0%</p>
       </div>
-    </div>
+    </div> -->
 
     <!-- KONTEN UTAMA -->
-
     <div id="main-content">
       <header
-        class="containers fixed top-0 inset-0 bg-white mx-auto py-6 px-10 z-10 w-full h-fit"
+        class="container mx-auto fixed top-0 inset-0 bg-white py-6 px-10 z-10 w-full h-fit"
       >
         <div class="w-full">
           <!-- desktop -->
@@ -153,7 +151,7 @@
 
               <figure
                 id="imgFigure"
-                class="opacity-0 scale-100 translate-x-0 transition-all duration-700 ease-in-out"
+                class="opacity-0 scale-100 translate-x-0 transition-all duration-500 ease-in-out"
               >
                 <img id="menuImage" src="/img/imgMenu.png" alt="" />
               </figure>
@@ -164,13 +162,13 @@
 
       <section
         id="zoomSection"
-        class="containers overflow-y-hidden pointer-events-auto cursor-pointer mt-[204px] relative will-change-transform"
+        class="max-w-screen mx-auto overflow-y-hidden pointer-events-auto cursor-pointer mt-[204px] relative will-change-transform"
       >
         <div class="flex flex-col justify-between w-full relative group">
           <!-- Background Atas -->
           <figure
             id="bgAtas"
-            class="absolute transition-all -top-96 duration-300 pointer-events-none ease-in-out z-20"
+            class="absolute transition-all w-full -top-96 duration-300 pointer-events-none ease-in-out z-20"
           >
             <img src="/img/background/bgAtas1.png" alt="" class="w-full" />
           </figure>
@@ -194,7 +192,7 @@
 
               <figure class="swiper-slide w-full">
                 <img
-                  src="/img/img2.png"
+                  src="/img/img02.png"
                   alt=""
                   class="h-[400px] object-cover img-click w-full"
                   data-target="target2"
@@ -206,13 +204,13 @@
                   src="/img/img1.png"
                   alt=""
                   class="h-[400px] object-cover w-full img-click"
-                  data-target="target2"
+                  data-target="target3"
                 />
               </figure>
 
               <figure class="swiper-slide w-full">
                 <img
-                  src="/img/img2.png"
+                  src="/img/img02.png"
                   alt=""
                   class="h-[400px] object-cover img-click w-full"
                   data-target="target1"
@@ -230,7 +228,7 @@
 
               <figure class="swiper-slide w-full">
                 <img
-                  src="/img/img2.png"
+                  src="/img/img02.png"
                   alt=""
                   class="h-[400px] object-cover img-click w-full"
                   data-target="target3"
@@ -242,203 +240,296 @@
           <!-- Background Bawah -->
           <figure
             id="bgBawah"
-            class="absolute transition-all -bottom-96 duration-300 pointer-events-none ease-in-out z-20"
+            class="absolute w-full transition-all -bottom-96 duration-300 pointer-events-none ease-in-out z-20"
           >
             <img src="/img/background/bgBawah1.png" alt="" class="w-full" />
           </figure>
         </div>
       </section>
 
-      <section class="containers mt-[174px] h-fit">
-        <div
-          class="font-normal text-[248px] w-full flex justify-between items-start"
-        >
+      <section class="container mx-auto m-0 mb-10 mt-[184px]">
+        <div class="font-normal text-[248px] w-full flex justify-between">
           <p class="font-['Volgarie'] text-[#303931] inline-block leading-none">
-            <span>K</span><span>l</span><span>o</span><span>r</span
-            ><span>a</span>
+            klora
           </p>
           <p class="font-['Volgarie'] text-[#303931] inline-block leading-none">
-            <span>S</span><span>t</span><span>u</span><span>d</span
-            ><span>i</span><span>o</span>
+            Studio
           </p>
         </div>
       </section>
 
-      <section id="target1" class="containers">
-        <div class="relative">
-          <figure>
-            <img src="/img/background/bg1.png" alt="" />
-          </figure>
-          <div
-            class="flex flex-col justify-between absolute top-[49px] h-full w-full"
-          >
-            <div class="text-white flex justify-between w-full px-11">
-              <div><span>11:23 AM - GMT+7</span></div>
-              <p class="font-['Volgarie']">Klora Studio</p>
-              <span
-                class="relative flex items-center justify-center border border-white rounded-full w-8 h-8 p-1.5"
-              >
-                <span
-                  class="absolute h-0.5 w-3.5 bg-white rotate-45 rounded"
-                ></span>
-                <span
-                  class="absolute h-0.5 w-3.5 bg-white -rotate-45 rounded"
-                ></span>
-              </span>
-            </div>
+      <!-- Popup -->
+      <div
+        id="popup"
+        class="max-w-screen mx-auto fixed inset-0 z-[999] scrollbar-hide hidden overflow-auto w-full bg-white"
+      >
+        <!-- Section target akan dimasukkan langsung di sini -->
+      </div>
 
+      <div
+        id="sections-wrapper"
+        class="hidden fixed inset-0 bg-black/50 z-50 overflow-y-auto"
+      >
+        <section id="target1" class="max-w-screen mx-auto mb-10 h-full">
+          <div class="relative h-full w-full">
+            <figure class="h-full">
+              <img
+                src="/img/background/bg1.png"
+                alt=""
+                class="h-full w-full object-cover"
+              />
+            </figure>
             <div
-              class="flex justify-between text-white absolute bottom-20 w-full px-10"
+              class="flex flex-col justify-between absolute top-[49px] h-full w-full"
             >
-              <p>The studio</p>
-              <p>20.12.2025</p>
-            </div>
-          </div>
-        </div>
-      </section>
+              <div class="text-white flex justify-between w-full px-11">
+                <div><span>11:23 AM - GMT+7</span></div>
+                <p class="font-['Volgarie']">Klora Studio</p>
 
-      <section id="target2" class="containers mt-10">
-        <div class="relative">
-          <figure>
-            <img src="/img/background/bg2.png" alt="" />
-          </figure>
-          <div
-            class="flex flex-col justify-between absolute top-[49px] h-full w-full"
-          >
-            <div class="text-white flex justify-between w-full px-11">
-              <div><span>11:23 AM - GMT+7</span></div>
-              <p>Klora Studio</p>
-              <span
-                class="relative flex items-center justify-center border border-white rounded-full w-8 h-8 p-1.5"
-              >
+                <!-- tombol close -->
                 <span
-                  class="absolute h-0.5 w-3.5 bg-white rotate-45 rounded"
-                ></span>
-                <span
-                  class="absolute h-0.5 w-3.5 bg-white -rotate-45 rounded"
-                ></span>
-              </span>
-            </div>
-
-            <div
-              class="flex justify-between text-white absolute bottom-20 w-full px-10"
-            >
-              <p>The studio</p>
-              <p>20.12.2025</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="containers mt-24 px-10 py-10">
-        <div class="text-black flex justify-between w-full px-11">
-          <div><span>11:23 AM - GMT+7</span></div>
-          <p class="text-2xl font-['volgarie']">Klora Studio</p>
-          <span
-            class="relative flex items-center justify-center border border-black rounded-full w-8 h-8 p-1.5"
-          >
-            <span
-              class="absolute h-0.5 w-3.5 bg-black rotate-45 rounded"
-            ></span>
-            <span
-              class="absolute h-0.5 w-3.5 bg-black -rotate-45 rounded"
-            ></span>
-          </span>
-        </div>
-
-        <div class="flex w-full border-b border-black/10 py-10">
-          <div class="grid grid-cols-2 gap-2 w-full max-w-[671px]">
-            <figure>
-              <img src="/img/img1.png" alt="" class="h-full w-full" />
-            </figure>
-            <figure>
-              <img src="/img/img2.png" alt="" class="h-full w-full" />
-            </figure>
-            <figure>
-              <img src="/img/img1.png" alt="" class="h-full w-full" />
-            </figure>
-            <figure>
-              <img src="/img/img2.png" alt="" class="h-full w-full" />
-            </figure>
-          </div>
-
-          <div class="w-full pl-32">
-            <h3 class="text-[64px] italic">The Studio</h3>
-            <div class="flex lg:gap-[171px]">
-              <div>
-                <h4 class="mb-[9px]">Model</h4>
-                <div class="flex cursor-pointer text-black">
-                  <span class="-translate-x-24">[1]</span>
-                  <p class="border-b border-black -translate-x-4.5">
-                    Kimberley J
-                  </p>
-                </div>
-
-                <div class="flex cursor-pointer text-primary">
-                  <span class="-translate-x-24">[2]</span>
-                  <p class="border-b border-primary -translate-x-4.5">
-                    Natasha R.
-                  </p>
-                </div>
-
-                <div class="flex cursor-pointer text-primary">
-                  <span class="-translate-x-24">[3]</span>
-                  <p class="border-b border-primary -translate-x-4.5">
-                    Florance P.
-                  </p>
-                </div>
+                  class="btn-close relative flex items-center cursor-pointer justify-center border-2 border-white rounded-full w-8 h-8 p-1.5 group hover:border-red-500 transition-colors duration-300"
+                >
+                  <span
+                    class="absolute h-0.5 w-3.5 bg-white rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[225deg]"
+                  ></span>
+                  <span
+                    class="absolute h-0.5 w-3.5 bg-white -rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[135deg]"
+                  ></span>
+                </span>
               </div>
 
-              <figure class="pt-14">
-                <img src="/img/person.png" alt="" />
+              <div
+                class="flex justify-between text-white absolute bottom-20 w-full px-10"
+              >
+                <p>The studio</p>
+                <p>20.12.2025</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="target2" class="max-w-screen mx-auto mb-10 h-full z-50">
+          <div class="relative h-full w-full">
+            <figure class="h-full">
+              <img
+                src="/img/background/bg2.png"
+                alt=""
+                class="h-full w-full object-cover"
+              />
+            </figure>
+            <div
+              class="flex flex-col justify-between absolute top-[49px] h-full w-full"
+            >
+              <div class="text-white flex justify-between w-full px-11">
+                <div><span>11:23 AM - GMT+7</span></div>
+                <p>Klora Studio</p>
+
+                <!-- tombol close -->
+                <span
+                  class="btn-close relative flex items-center cursor-pointer justify-center border-2 border-white rounded-full w-8 h-8 p-1.5 group hover:border-red-500 transition-colors duration-300"
+                >
+                  <span
+                    class="absolute h-0.5 w-3.5 bg-white rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[225deg]"
+                  ></span>
+                  <span
+                    class="absolute h-0.5 w-3.5 bg-white -rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[135deg]"
+                  ></span>
+                </span>
+              </div>
+
+              <div
+                class="flex justify-between text-white absolute bottom-20 w-full px-10"
+              >
+                <p>The studio</p>
+                <p>20.12.2025</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="target3" class="containers w-full py-10 px-10">
+          <div class="text-black flex justify-between w-full">
+            <div><span>11:23 AM - GMT+7</span></div>
+            <p class="text-2xl font-['volgarie']">Klora Studio</p>
+
+            <!-- tombol close -->
+            <span
+              class="btn-close relative flex items-center cursor-pointer justify-center border-2 border-black rounded-full w-8 h-8 p-1.5 group hover:border-red-500 transition-colors duration-300"
+            >
+              <span
+                class="absolute h-0.5 w-3.5 bg-black rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[225deg]"
+              ></span>
+              <span
+                class="absolute h-0.5 w-3.5 bg-black -rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[135deg]"
+              ></span>
+            </span>
+          </div>
+
+          <div class="flex w-full border-b border-black/10 py-10">
+            <div class="grid grid-cols-2 gap-2 w-full max-w-[671px]">
+              <figure>
+                <img src="/img/img1.png" alt="" class="h-full w-full" />
+              </figure>
+              <figure>
+                <img src="/img/img2.png" alt="" class="h-full w-full" />
+              </figure>
+              <figure>
+                <img src="/img/img1.png" alt="" class="h-full w-full" />
+              </figure>
+              <figure>
+                <img src="/img/img2.png" alt="" class="h-full w-full" />
               </figure>
             </div>
-            <p class="text-xs text-primary mt-10 leading-[1.6]">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
-              nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
-              tellus elit sed risus. Maecenas eget condimentum velit, sit amet
-              feugiat lectus. Class aptent taciti sociosqu ad litora torquent
-              per conubia nostra, per inceptos himenaeos. Praesent auctor purus
-              luctus enim egestas, ac scelerisque ante pulvinar. Donec ut
-              rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur
-              vel bibendum lorem. Morbi convallis convallis diam sit amet
-              lacinia. Aliquam in elementum tellus.
-            </p>
-          </div>
-        </div>
 
-        <div class="flex justify-between">
-          <div class="text-primary">
-            <h4 class="mb-[9px] text-black">Photographer</h4>
-            <p class="borderPrimry">Jonathan</p>
-            <p class="borderPrimry">Andrea. H</p>
+            <div class="w-full pl-32">
+              <h3 class="text-[64px] italic">The Studio</h3>
+              <div class="flex lg:gap-[171px]">
+                <div>
+                  <h4 class="mb-[9px]">Model</h4>
+
+                  <div id="people-list" class="space-y-4">
+                    <div
+                      data-img="/img/person.png"
+                      class="flex cursor-pointer text-primary hover:text-primary transition-colors duration-300"
+                    >
+                      <span class="-translate-x-24">[1]</span>
+                      <p
+                        class="border-b border-primary hover:border-primary transition-colors duration-300 -translate-x-4.5"
+                      >
+                        Kimberley J
+                      </p>
+                    </div>
+
+                    <div
+                      data-img="/img/person2.png"
+                      class="flex cursor-pointer text-primary hover:text-black transition-colors duration-300"
+                    >
+                      <span class="-translate-x-24">[2]</span>
+                      <p
+                        class="border-b border-primary hover:border-black transition-colors duration-300 -translate-x-4.5"
+                      >
+                        Natasha R.
+                      </p>
+                    </div>
+
+                    <div
+                      data-img="/img/person3.png"
+                      class="flex cursor-pointer text-primary hover:text-black transition-colors duration-300"
+                    >
+                      <span class="-translate-x-24">[3]</span>
+                      <p
+                        class="border-b border-primary hover:border-black transition-colors duration-300 -translate-x-4.5"
+                      >
+                        Florance P.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <figure class="pt-14">
+                  <img id="person-img" src="/img/person.png" alt="" />
+                </figure>
+              </div>
+
+              <p class="text-xs text-primary mt-10 leading-[1.6]">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
+                metus nec fringilla accumsan, risus sem sollicitudin lacus, ut
+                interdum tellus elit sed risus. Maecenas eget condimentum velit,
+                sit amet feugiat lectus. Class aptent taciti sociosqu ad litora
+                torquent per conubia nostra, per inceptos himenaeos. Praesent
+                auctor purus luctus enim egestas, ac scelerisque ante pulvinar.
+                Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor
+                urna. Curabitur vel bibendum lorem. Morbi convallis convallis
+                diam sit amet lacinia. Aliquam in elementum tellus.
+              </p>
+            </div>
           </div>
-          <div class="text-primary">
-            <h4 class="mb-[9px] text-black">Photographer</h4>
-            <p class="borderPrimry">Jonathan</p>
-            <p class="borderPrimry">Andrea. H</p>
+
+          <div class="flex justify-between">
+            <div class="text-primary">
+              <h4 class="mb-[9px] text-black">Photographer</h4>
+              <p class="borderPrimry">Jonathan</p>
+              <p class="borderPrimry">Andrea. H</p>
+            </div>
+            <div class="text-primary">
+              <h4 class="mb-[9px] text-black">Photographer</h4>
+              <p class="borderPrimry">Jonathan</p>
+              <p class="borderPrimry">Andrea. H</p>
+            </div>
+            <div class="text-primary">
+              <h4 class="mb-[9px] text-black">Photographer</h4>
+              <p class="borderPrimry">Jonathan</p>
+              <p class="borderPrimry">Andrea. H</p>
+            </div>
+            <div class="text-primary">
+              <h4 class="mb-[9px] text-black">Photographer</h4>
+              <p class="borderPrimry">Jonathan</p>
+              <p class="borderPrimry">Andrea. H</p>
+            </div>
           </div>
-          <div class="text-primary">
-            <h4 class="mb-[9px] text-black">Photographer</h4>
-            <p class="borderPrimry">Jonathan</p>
-            <p class="borderPrimry">Andrea. H</p>
-          </div>
-          <div class="text-primary">
-            <h4 class="mb-[9px] text-black">Photographer</h4>
-            <p class="borderPrimry">Jonathan</p>
-            <p class="borderPrimry">Andrea. H</p>
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <footer
-        class="containers border-t border-black/10 flex justify-between mt-28 px-10"
+        class="container mx-auto border-t border-black/10 flex justify-between mt-28 px-10"
       >
         <p>The studio</p>
         <p>20.12.2025</p>
       </footer>
     </div>
+
+    <script>
+      function setActiveItem(item, container) {
+        const allItems = container.querySelectorAll('div[data-img]');
+        const img = container.querySelector('#person-img');
+
+        // hapus class aktif di semua item
+        allItems.forEach((el) => el.classList.remove('active'));
+        // tambahkan class aktif di item terpilih
+        item.classList.add('active');
+
+        // efek fade out
+        img.style.opacity = 0;
+        setTimeout(() => {
+          img.src = item.getAttribute('data-img');
+          img.style.opacity = 1;
+        }, 400);
+      }
+
+      // event delegation untuk daftar utama
+      document.addEventListener('click', (e) => {
+        const item = e.target.closest('#people-list > div[data-img]');
+        if (item) {
+          setActiveItem(item, document);
+        }
+      });
+
+      // event delegation untuk daftar di popup
+      document.addEventListener('click', (e) => {
+        const item = e.target.closest('#popup #people-list > div[data-img]');
+        if (item) {
+          setActiveItem(item, document.getElementById('popup'));
+        }
+      });
+
+      // SET AKTIF DI AWAL
+      document.addEventListener('DOMContentLoaded', () => {
+        const firstItem = document.querySelector(
+          '#people-list > div[data-img]'
+        );
+        if (firstItem) {
+          setActiveItem(firstItem, document);
+        }
+        const firstPopupItem = document.querySelector(
+          '#popup #people-list > div[data-img]'
+        );
+        if (firstPopupItem) {
+          setActiveItem(firstPopupItem, document.getElementById('popup'));
+        }
+      });
+    </script>
 
     <script type="module" src="src/main.js"></script>
     <script type="module" src="src/counter.js"></script>
