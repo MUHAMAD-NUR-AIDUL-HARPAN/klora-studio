@@ -246,7 +246,7 @@ menuButtons.forEach((button) => {
     imgFigure.classList.remove('opacity-100', 'scale-100');
     imgFigure.classList.add('opacity-0', 'scale-105');
 
-    // setelah fade out selesai → baru ganti gambar
+    // setelah fade out selesai (500ms) → baru ganti gambar
     setTimeout(() => {
       switch (label) {
         case 'Work':
@@ -267,24 +267,23 @@ menuButtons.forEach((button) => {
       imgFigure.classList.remove('opacity-0', 'scale-105');
       imgFigure.classList.add('opacity-100', 'scale-100');
 
-      
-      // --- rotate delay 0.2s (200ms) ---
+      // --- rotate delay 0.2s ---
       setTimeout(() => {
         switch (label) {
           case 'Work':
             menuImage.style.transform = 'rotate(0deg)';
             break;
           case 'Studio':
-            menuImage.style.transform = 'rotate(-20deg)';
+            menuImage.style.transform = 'rotate(-25deg)';
             break;
           case 'Archive':
             menuImage.style.transform = 'rotate(-15deg)';
             break;
           case 'Say hi':
-            menuImage.style.transform = 'rotate(-20deg)';
+            menuImage.style.transform = 'rotate(-30deg)';
             break;
         }
       }, 200);
-    }, 300); 
+    }, 300); // ganti gambar setelah 500ms, lebih smooth
   });
 });
