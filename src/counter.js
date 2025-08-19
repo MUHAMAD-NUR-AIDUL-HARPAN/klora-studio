@@ -284,6 +284,6 @@ menuButtons.forEach((button) => {
             break;
         }
       }, 200);
-    }, 300); // ganti gambar setelah 500ms, lebih smooth
+    }, 500);
   });
 });
