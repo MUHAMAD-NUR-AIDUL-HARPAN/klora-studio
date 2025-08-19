@@ -222,63 +222,69 @@ menuButtons.forEach((button) => {
     const paragraphs = button.querySelectorAll('p');
     const label = paragraphs[1]?.textContent?.trim();
 
-    // Reset semua tombol jadi abu-abu
+    // reset warna menu
     menuButtons.forEach((btn) => {
       btn.classList.remove('text-black');
       btn.classList.add('text-gray-500');
 
-      const ps = btn.querySelectorAll('p');
-      ps.forEach((p) => {
+      btn.querySelectorAll('p').forEach((p) => {
         p.classList.remove('text-black');
         p.classList.add('text-gray-500');
       });
     });
 
-    //Aktifkan warna hitam pada tombol yang di-hover
+    // aktifkan tombol sekarang
     button.classList.remove('text-gray-500');
     button.classList.add('text-black');
 
-    const ps = button.querySelectorAll('p');
-    ps.forEach((p) => {
+    button.querySelectorAll('p').forEach((p) => {
       p.classList.remove('text-gray-500');
       p.classList.add('text-black');
     });
 
-    // Ganti gambar dengan animasi
-    imgFigure.classList.remove('scale-100', 'opacity-100', 'translate-x-0');
-    imgFigure.classList.add('scale-110', 'opacity-0');
+    // --- fade out gambar ---
+    imgFigure.classList.remove('opacity-100', 'scale-100');
+    imgFigure.classList.add('opacity-0', 'scale-105');
 
+    // setelah fade out selesai → baru ganti gambar
     setTimeout(() => {
       switch (label) {
         case 'Work':
           menuImage.src = '/img/imgMenu.png';
-          menuImage.style.transform = 'rotate(0deg)';
           break;
-
         case 'Studio':
           menuImage.src = '/img/imgMenu2.png';
-          menuImage.style.transform = 'rotate(-20deg)';
           break;
-
         case 'Archive':
           menuImage.src = '/img/imgMenu3.png';
-          menuImage.style.transition = 'transform 0.5s ease';
-          menuImage.style.transform = 'rotate(-15deg)';
           break;
-
         case 'Say hi':
           menuImage.src = '/img/imgMenu05.png';
-          menuImage.style.transform = 'rotate(-20deg)';
           break;
       }
 
-      imgFigure.classList.remove('scale-110');
-      imgFigure.classList.add('translate-x-0');
+      // --- fade in lagi ---
+      imgFigure.classList.remove('opacity-0', 'scale-105');
+      imgFigure.classList.add('opacity-100', 'scale-100');
 
+      // --- rotate delay 2 detik ---
       setTimeout(() => {
-        imgFigure.classList.remove('translate-x-full', 'opacity-0');
-        imgFigure.classList.add('translate-x-0', 'scale-100', 'opacity-100');
-      }, 50);
-    }, 500);
+        menuImage.style.transition = 'transform 0.6s ease';
+        switch (label) {
+          case 'Work':
+            menuImage.style.transform = 'rotate(0deg)';
+            break;
+          case 'Studio':
+            menuImage.style.transform = 'rotate(-20deg)';
+            break;
+          case 'Archive':
+            menuImage.style.transform = 'rotate(-15deg)';
+            break;
+          case 'Say hi':
+            menuImage.style.transform = 'rotate(-20deg)';
+            break;
+        }
+      }, 200);
+    }, 300); // sesuai duration-500
   });
 });
