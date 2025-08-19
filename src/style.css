@@ -122,7 +122,6 @@ html::-webkit-scrollbar {
   transform-origin: center center;
 }
 
-
 html.lenis {
   scroll-behavior: auto !important;
 }
@@ -130,7 +129,7 @@ html.lenis {
 #popup {
   transition: opacity 0.5s ease, transform 0.5s ease;
   opacity: 0;
-  transform: scale(0.40);
+  transform: scale(0.4);
 }
 
 #popup.show {
@@ -151,4 +150,10 @@ html.lenis {
 /* Border aktif */
 .active p {
   border-color: black !important;
+}
+
+
+#menuImage {
+  transition: transform 0.6s ease, opacity 0.5s ease;
+  transform-origin: center; 
 }

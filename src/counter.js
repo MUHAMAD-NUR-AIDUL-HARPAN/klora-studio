@@ -267,9 +267,9 @@ menuButtons.forEach((button) => {
       imgFigure.classList.remove('opacity-0', 'scale-105');
       imgFigure.classList.add('opacity-100', 'scale-100');
 
-      // --- rotate delay 2 detik ---
+      
+      // --- rotate delay 0.2s (200ms) ---
       setTimeout(() => {
-        menuImage.style.transition = 'transform 0.6s ease';
         switch (label) {
           case 'Work':
             menuImage.style.transform = 'rotate(0deg)';
@@ -285,6 +285,6 @@ menuButtons.forEach((button) => {
             break;
         }
       }, 200);
-    }, 300); // sesuai duration-500
+    }, 300); 
   });
 });
