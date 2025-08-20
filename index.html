@@ -39,9 +39,9 @@
     </style>
   </head>
 
-  <body class="">
+  <body>
     <!-- PRELOADER -->
-    <div id="preloader">
+    <!-- <div id="preloader">
       <div
         class="absolute inset-0 flex justify-between px-4 z-50 pointer-events-none"
       >
@@ -75,7 +75,7 @@
         <p class="text-black">Preparing the magic</p>
         <p id="percentage" class="text-[248px] italic font-['volgarie']">0%</p>
       </div>
-    </div>
+    </div> -->
 
     <!-- KONTEN UTAMA -->
     <div id="main-content">
@@ -153,7 +153,12 @@
                 id="imgFigure"
                 class="-translate-x-10 opacity-0 scale-100 transition-all duration-500 ease-in-out"
               >
-                <img id="menuImage" class="transition-all duration-700 ease-in-out" src="/img/imgMenu.png" alt="" />
+                <img
+                  id="menuImage"
+                  class="transition-all duration-700 ease-in-out"
+                  src="/img/imgMenu.png"
+                  alt=""
+                />
               </figure>
             </ul>
           </nav>
@@ -178,7 +183,14 @@
             id="horizontalScroll"
             class="swiper z-10 relative w-full max-w-full overflow-x-auto"
           >
-            <div class="swiper-wrapper">
+            <div
+              class="flex justify-between px-[477px] text-secondary text-xs mb-2.5"
+            >
+              <p>The studio</p>
+              <p>20.12.2025</p>
+            </div>
+
+            <div class="swiper-wrapper w-full">
               <!-- Slide -->
 
               <figure class="swiper-slide w-full">
@@ -270,6 +282,25 @@
         id="sections-wrapper"
         class="hidden fixed inset-0 bg-black/50 z-50 overflow-y-auto"
       >
+        <header
+          class="sticky top-0 z-10 text-white bg-black flex justify-between w-full py-6 px-11"
+        >
+          <div><span>11:23 AM - GMT+7</span></div>
+          <p class="font-['Volgarie']">Klora Studio</p>
+
+          <!-- tombol close -->
+          <span
+            class="btn-close relative flex items-center cursor-pointer justify-center border-2 border-white rounded-full w-8 h-8 p-1.5 group hover:border-red-500 transition-colors duration-300"
+          >
+            <span
+              class="absolute h-0.5 w-3.5 bg-white rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[225deg]"
+            ></span>
+            <span
+              class="absolute h-0.5 w-3.5 bg-white -rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[135deg]"
+            ></span>
+          </span>
+        </header>
+
         <section id="target1" class="max-w-screen mx-auto mb-10 h-full">
           <div class="relative h-full w-full">
             <figure class="h-full">
@@ -282,23 +313,6 @@
             <div
               class="flex flex-col justify-between absolute top-[49px] h-full w-full"
             >
-              <div class="text-white flex justify-between w-full px-11">
-                <div><span>11:23 AM - GMT+7</span></div>
-                <p class="font-['Volgarie']">Klora Studio</p>
-
-                <!-- tombol close -->
-                <span
-                  class="btn-close relative flex items-center cursor-pointer justify-center border-2 border-white rounded-full w-8 h-8 p-1.5 group hover:border-red-500 transition-colors duration-300"
-                >
-                  <span
-                    class="absolute h-0.5 w-3.5 bg-white rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[225deg]"
-                  ></span>
-                  <span
-                    class="absolute h-0.5 w-3.5 bg-white -rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[135deg]"
-                  ></span>
-                </span>
-              </div>
-
               <div
                 class="flex justify-between text-white absolute bottom-20 w-full px-10"
               >
@@ -309,7 +323,7 @@
           </div>
         </section>
 
-        <section id="target2" class="max-w-screen mx-auto mb-10 h-full z-50">
+        <section id="target2" class="max-w-screen mx-auto h-full z-50">
           <div class="relative h-full w-full">
             <figure class="h-full">
               <img
@@ -319,25 +333,8 @@
               />
             </figure>
             <div
-              class="flex flex-col justify-between absolute top-[49px] h-full w-full"
+              class="flex flex-col justify-between absolute bottom-0 h-full w-full"
             >
-              <div class="text-white flex justify-between w-full px-11">
-                <div><span>11:23 AM - GMT+7</span></div>
-                <p>Klora Studio</p>
-
-                <!-- tombol close -->
-                <span
-                  class="btn-close relative flex items-center cursor-pointer justify-center border-2 border-white rounded-full w-8 h-8 p-1.5 group hover:border-red-500 transition-colors duration-300"
-                >
-                  <span
-                    class="absolute h-0.5 w-3.5 bg-white rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[225deg]"
-                  ></span>
-                  <span
-                    class="absolute h-0.5 w-3.5 bg-white -rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[135deg]"
-                  ></span>
-                </span>
-              </div>
-
               <div
                 class="flex justify-between text-white absolute bottom-20 w-full px-10"
               >
@@ -348,24 +345,7 @@
           </div>
         </section>
 
-        <section id="target3" class="containers w-full py-10 px-10">
-          <div class="text-black flex justify-between w-full">
-            <div><span>11:23 AM - GMT+7</span></div>
-            <p class="text-2xl font-['volgarie']">Klora Studio</p>
-
-            <!-- tombol close -->
-            <span
-              class="btn-close relative flex items-center cursor-pointer justify-center border-2 border-black rounded-full w-8 h-8 p-1.5 group hover:border-red-500 transition-colors duration-300"
-            >
-              <span
-                class="absolute h-0.5 w-3.5 bg-black rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[225deg]"
-              ></span>
-              <span
-                class="absolute h-0.5 w-3.5 bg-black -rotate-45 rounded transition-all duration-500 group-hover:bg-red-500 group-hover:rotate-[135deg]"
-              ></span>
-            </span>
-          </div>
-
+        <section id="target3" class="containers w-full pt-11 pb-10 px-10 bg-white">
           <div class="flex w-full border-b border-black/10 py-10">
             <div class="grid grid-cols-2 gap-2 w-full max-w-[671px]">
               <figure>
@@ -469,15 +449,15 @@
               <p class="borderPrimry">Andrea. H</p>
             </div>
           </div>
+
+          <div class="mx-auto border-t border-black/10 px-10 bg-amber-700">
+            <div class="flex justify-between">
+              <p>The studio</p>
+              <p>20.12.2025</p>
+            </div>
+          </div>
         </section>
       </div>
-
-      <footer
-        class="container mx-auto border-t border-black/10 flex justify-between mt-28 px-10"
-      >
-        <p>The studio</p>
-        <p>20.12.2025</p>
-      </footer>
     </div>
 
     <script>

@@ -78,7 +78,7 @@ const swiper = new Swiper('#horizontalScroll', {
     setTranslate(swiperInstance) {
       // Tampilkan efek background
       bgAtas.classList.remove('-top-96');
-      bgAtas.classList.add('-top-11');
+      bgAtas.classList.add('-top-5');
       bgBawah.classList.remove('-bottom-96');
       bgBawah.classList.add('-bottom-11');
 
