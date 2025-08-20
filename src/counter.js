@@ -190,14 +190,14 @@ function toggleMenu() {
     line3.classList.remove('-rotate-45', '-translate-y-1.5');
   }
 
-  // Gambar muncul dari kanan ke kiri setelah 1 detik
+  // Gambar muncul dari bawah ke atas setelah 1 detik
   if (menuOpen) {
     imgFigure.classList.add('translate-x-full', 'opacity-0');
     imgFigure.classList.remove('hidden');
 
     setTimeout(() => {
       imgFigure.classList.remove('translate-x-full', 'opacity-0');
-      imgFigure.classList.add('translate-x-0', 'opacity-100');
+      imgFigure.classList.add('translate-y-0', 'opacity-100');
     }, 1000);
   } else {
     imgFigure.classList.remove('translate-x-0', 'opacity-100');
@@ -205,7 +205,7 @@ function toggleMenu() {
 
     setTimeout(() => {
       imgFigure.classList.add('hidden');
-    }, 500); // biar transisi selesai baru di-hide
+    }, 700); // biar transisi selesai baru di-hide
   }
 }
 
