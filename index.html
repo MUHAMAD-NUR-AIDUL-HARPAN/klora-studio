@@ -98,7 +98,7 @@
 
               <div
                 id="hamburgerIcon"
-                class="flex flex-col gap-1 border rounded-full p-2 z-10 transition-all duration-300"
+                class="flex flex-col gap-1 border rounded-full p-2 z-30 transition-all duration-300"
               >
                 <span
                   id="line1"
@@ -119,14 +119,14 @@
           <!-- isi menu hamburger -->
           <nav
             id="menuDropdown"
-            class="absolute w-full h-screen bg-white top-0 left-0 transition-all duration-500 ease-in-out opacity-0 scale-95 pointer-events-none"
+            class="absolute w-full h-screen bg-white z-20 top-0 left-0 transition-all duration-500 ease-in-out opacity-0 scale-95 pointer-events-none"
           >
             <ul class="flex items-center h-full px-10">
               <li class="w-1/2 pr-48 space-y-4">
                 <button
                   class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-black"
                 >
-                  <p>[01]</p>
+                  <p class="text-primary">[01]</p>
                   <p class="text-[64px]">Work</p>
                 </button>
                 <button
@@ -461,6 +461,184 @@
           </div>
         </section>
       </div>
+
+      <section class="container min-h-screen mt-10">
+        <div class="flex flex-col justify-center items-center w-full relative">
+          <!-- gambar -->
+          <figure class="absolute left-20 top-0 z-10 image-parallax">
+            <img src="/img/imgMenu2.png" alt="" />
+          </figure>
+
+          <!-- garis abu-abu -->
+          <div
+            class="h-[200px] w-[3px] bg-gray-400 relative overflow-hidden line-wrapper"
+          >
+            <!-- garis hitam -->
+            <div class="absolute top-0 left-0 w-full h-full bg-gray-400"></div>
+            <!-- garis biru (progress) -->
+            <div
+              class="absolute top-0 left-0 w-full h-0 bg-black progress-line"
+            ></div>
+          </div>
+
+          <div
+            class="text-8xl font-['Volgarie'] max-w-[881px] text-center mt-24 z-10"
+          >
+            Where we’re begin the journey?
+          </div>
+
+          <div class="text-center w-full max-w-[491px] mt-[60px] text-xs">
+            <p>
+              Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+              turpis molestie, dictum est a, mattis tellus...
+            </p>
+          </div>
+
+          <!-- garis bawah -->
+          <div
+            class="h-[200px] w-[3px] bg-gray-400 relative overflow-hidden line-wrapper"
+          >
+            <div class="absolute top-0 left-0 w-full h-full"></div>
+            <div
+              class="absolute top-0 left-0 w-full h-0 bg-black progress-line"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container min-h-screen mt-7">
+        <div class="flex flex-col justify-center items-center w-full relative">
+          <!-- gambar -->
+          <figure class="absolute right-20 top-0 z-10 image-parallax">
+            <img src="/img/imgMenu2.png" alt="" class="grayscale-100" />
+          </figure>
+
+          <!-- garis atas -->
+          <div
+            class="h-[201px] w-[3px] bg-gray-700 relative overflow-hidden line-wrapper"
+          >
+            <!-- full hitam -->
+            <div class="absolute top-0 left-0 w-full h-full bg-gray-600"></div>
+            <!-- progress biru -->
+            <div
+              class="absolute top-0 left-0 w-full h-0 bg-black progress-line"
+            ></div>
+          </div>
+
+          <!-- text -->
+          <div
+            class="text-8xl font-['volgarie'] w-full max-w-[881px] text-center mt-24 z-20"
+          >
+            Where we’re begin the journey?
+          </div>
+          <div class="text-center w-full max-w-[491px] mt-[60px] text-xs">
+            <p>Started only with one Strong man</p>
+          </div>
+
+          <!-- garis bawah -->
+          <div
+            class="h-[201px] w-[3px] bg-gray-700 mt-16 relative overflow-hidden line-wrapper"
+          >
+            <div class="absolute top-0 left-0 w-full h-full bg-gray-600"></div>
+            <div
+              class="absolute top-0 left-0 w-full h-0 bg-black progress-line"
+            ></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="container min-h-screen mt-8">
+        <div class="flex justify-between">
+          <h3 class="text-8xl font-['volgarie'] w-full max-w-[670px]">
+            what our customer says
+          </h3>
+          <p class="w-full text-primary max-w-[491px]">
+            Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+            turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+            nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum
+            tellus elit sed risus. Maecenas eget condimentum velit, sit amet
+            feugiat lectus. Class aptent taciti sociosqu ad litora torquent per
+            conubia nostra,
+          </p>
+        </div>
+
+        <div
+          class="flex items-center max-w-5xl justify-center mx-auto mt-[131px] h-[1066px] relative"
+        >
+          <div class="flex flex-col justify-between h-full">
+            <figure><img src="/img/profile1.png" alt="" /></figure>
+            <figure><img src="/img/person4.png" alt="" /></figure>
+          </div>
+
+          <div
+            class="flex justify-between w-full absolute top-[94px] px-[94px]"
+          >
+            <figure><img src="/img/person4.png" alt="" /></figure>
+            <figure><img src="/img/person5.png" alt="" /></figure>
+          </div>
+
+          <div class="flex justify-between w-full absolute top-[418px]">
+            <figure><img src="/img/person8.png" alt="" /></figure>
+            <div
+              class="text-center max-w-[487px] flex flex-col items-center m-auto"
+            >
+              <h4 class="text-center font-['volgarie'] text-primary text-2xl">
+                “Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+                eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
+                metus nec fringilla accumsan, “
+              </h4>
+              <div class="mt-[17px]">
+                <p>Anthony Boyd</p>
+                <p>The Studio</p>
+              </div>
+            </div>
+            <figure><img src="/img/perosn9.png" alt="" /></figure>
+          </div>
+
+          <div
+            class="flex justify-between w-full absolute bottom-[94px] px-[94px]"
+          >
+            <figure><img src="/img/person6.png" alt="" /></figure>
+            <figure><img src="/img/person7.png" alt="" /></figure>
+          </div>
+        </div>
+      </section>
+
+      <footer class="container pb-6 bg-[#303931] mt-20">
+        <div class="h-full flex flex-col gap-[178px]">
+          <div class="mt-24 text-primary">
+            <h4>Say Hi !</h4>
+            <a href="" class="block">Hello@klora.std </a>
+            <a href="" class="block">+62 321 323 333 </a>
+            <a href="" class="block">@Klora.std </a>
+          </div>
+
+          <div class="font-normal w-full flex flex-col justify-between">
+            <div
+              class="text-[248px] flex justify-between border-b border-primary"
+            >
+              <p
+                class="font-['Volgarie'] text-primary inline-block leading-none"
+              >
+                klora
+              </p>
+              <p
+                class="font-['Volgarie'] text-primary inline-block leading-none"
+              >
+                Studio
+              </p>
+            </div>
+
+            <div class="flex justify-between mt-7 text-primary">
+              <p>KloraStudio</p>
+              <p class="">Copyright 2024©️All right Reserved.</p>
+              <p class="flex gap-4">
+                <span>User Agreement</span><span>Privacy Policy</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
 
     <script>

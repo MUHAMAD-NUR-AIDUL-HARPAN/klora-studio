@@ -251,12 +251,14 @@ menuButtons.forEach((button) => {
       switch (label) {
         case 'Work':
           menuImage.src = '/img/imgMenu.png';
+          // menuImage.style.filter = 'none';
           break;
         case 'Studio':
           menuImage.src = '/img/imgMenu2.png';
           break;
         case 'Archive':
-          menuImage.src = '/img/imgMenu3.png';
+          menuImage.src = '/img/imgMenu2.png';
+          // menuImage.style.filter = 'grayscale(100%)';
           break;
         case 'Say hi':
           menuImage.src = '/img/imgMenu05.png';
@@ -287,3 +289,76 @@ menuButtons.forEach((button) => {
     }, 500);
   });
 });
+
+// gsap ======================================
+// gsap.registerPlugin(ScrollTrigger);
+
+// // === Progress Line ===
+// document.querySelectorAll('.line-wrapper').forEach((wrapper) => {
+//   const line = wrapper.querySelector('.progress-line');
+
+//   if (line) {
+//     gsap.to(line, {
+//       height: '100%', // penuh
+//       ease: 'none',
+//       scrollTrigger: {
+//         trigger: wrapper,
+//         start: 'top bottom', // saat bagian atas wrapper menyentuh bawah viewport
+//         end: 'bottom top', // saat bawah wrapper menyentuh atas viewport
+//         scrub: true, // sinkron dengan scroll
+//       },
+//     });
+//   }
+// });
+
+// // === Image Parallax ===
+// gsap.to('.image-parallax', {
+//   y: -160, // geser naik max 160px (atur sesuai selera)
+//   ease: 'none',
+//   scrollTrigger: {
+//     trigger: '.line-wrapper', // bisa juga ".container" besar
+//     start: 'top bottom',
+//     end: 'bottom top',
+//     scrub: true,
+//   },
+// });
+
+const lineWrappers = document.querySelectorAll('.line-wrapper');
+const images = document.querySelectorAll('.image-parallax');
+
+function updateProgress() {
+  lineWrappers.forEach((wrapper, index) => {
+    const rect = wrapper.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    // progress scroll
+    let progress = 1 - rect.top / windowHeight;
+    progress = Math.max(0, Math.min(1, progress));
+
+    const line = wrapper.querySelector('.progress-line');
+    const totalHeight = wrapper.offsetHeight;
+    const filledHeight = totalHeight * progress;
+
+    // animasi garis biru pakai gsap
+    gsap.to(line, {
+      height: filledHeight,
+      duration: 0.3,
+      ease: 'power2.out',
+    });
+
+    // gambar ikut scroll ke bawah (parallax)
+    if (images[index]) {
+      const speed = 0.5; // semakin kecil semakin pelan
+      const shift = rect.top * speed;
+
+      gsap.to(images[index], {
+        y: shift,
+        duration: 0.3,
+        ease: 'power2.out',
+      });
+    }
+  });
+}
+
+updateProgress();
+window.addEventListener('scroll', updateProgress);

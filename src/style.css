@@ -3,6 +3,7 @@
 @theme {
   --color-primary: #aea88e;
   --color-secondary: #dad7cb;
+  --color-green: AEA88E;
   --font-volgarie: 'Volgarie', cursive;
 }
 @layer base {
@@ -157,3 +158,10 @@ html.lenis {
   transition: transform 0.6s ease, opacity 0.5s ease;
   transform-origin: center; 
 } */
+.image-parallax img {
+  transition: transform 0.1s linear;
+}
+
+.image-parallax {
+  transition: transform 0.2s linear;
+}
