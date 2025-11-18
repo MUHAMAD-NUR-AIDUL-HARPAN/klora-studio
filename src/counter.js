@@ -153,10 +153,32 @@ const line1 = document.getElementById('line1');
 const line2 = document.getElementById('line2');
 const line3 = document.getElementById('line3');
 
+// ambil SEMUA figure & text besar (header + section)
+const allFigures = document.querySelectorAll('.image-parallax');
+const allBigTexts = document.querySelectorAll('.text-8xl');
+
 let menuOpen = false;
 
 function toggleMenu() {
   menuOpen = !menuOpen;
+
+  // ============= ubah z-index semua target =============
+  allFigures.forEach((fig) => {
+    fig.style.zIndex = menuOpen ? '0' : '10';
+  });
+
+  allBigTexts.forEach((txt) => {
+    // kalau dia default z-20 (seperti di section), kembalikan ke 20
+    if (!menuOpen) {
+      if (txt.classList.contains('z-20')) {
+        txt.style.zIndex = '20';
+      } else {
+        txt.style.zIndex = '10';
+      }
+    } else {
+      txt.style.zIndex = '0';
+    }
+  });
 
   // Toggle animasi dropdown menu
   menuDropdown.classList.toggle('opacity-100');
@@ -291,37 +313,6 @@ menuButtons.forEach((button) => {
 });
 
 // gsap ======================================
-// gsap.registerPlugin(ScrollTrigger);
-
-// // === Progress Line ===
-// document.querySelectorAll('.line-wrapper').forEach((wrapper) => {
-//   const line = wrapper.querySelector('.progress-line');
-
-//   if (line) {
-//     gsap.to(line, {
-//       height: '100%', // penuh
-//       ease: 'none',
-//       scrollTrigger: {
-//         trigger: wrapper,
-//         start: 'top bottom', // saat bagian atas wrapper menyentuh bawah viewport
-//         end: 'bottom top', // saat bawah wrapper menyentuh atas viewport
-//         scrub: true, // sinkron dengan scroll
-//       },
-//     });
-//   }
-// });
-
-// // === Image Parallax ===
-// gsap.to('.image-parallax', {
-//   y: -160, // geser naik max 160px (atur sesuai selera)
-//   ease: 'none',
-//   scrollTrigger: {
-//     trigger: '.line-wrapper', // bisa juga ".container" besar
-//     start: 'top bottom',
-//     end: 'bottom top',
-//     scrub: true,
-//   },
-// });
 
 const lineWrappers = document.querySelectorAll('.line-wrapper');
 const images = document.querySelectorAll('.image-parallax');
