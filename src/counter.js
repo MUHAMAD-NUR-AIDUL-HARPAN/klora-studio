@@ -61,37 +61,36 @@ observer.observe(section);
 const swiper = new Swiper('#horizontalScroll', {
   slidesPerView: 3,
   spaceBetween: 4,
-  // grabCursor: true,
   mousewheel: {
-    sensitivity: 0.4, // default 1, lebih kecil = scroll lebih berat
+    sensitivity: 0.4,
   },
   freeMode: {
-    momentum: true, // aktifkan momentum untuk smooth
-    momentumRatio: 0.4, // default 1, lebih kecil = lebih berat
-    momentumVelocityRatio: 0.4, // kontrol kecepatan momentum
+    momentum: true,
+    momentumRatio: 0.4,
+    momentumVelocityRatio: 0.4,
   },
   on: {
     touchStart() {
-      // Saat mulai menggeser swiper, nonaktifkan scroll vertikal
       if (isInSection) toggleLenisScroll(false);
     },
     setTranslate(swiperInstance) {
-      // Tampilkan efek background
-      bgAtas.classList.remove('-top-96');
-      bgAtas.classList.add('-top-5');
-      bgBawah.classList.remove('-bottom-96');
-      bgBawah.classList.add('-bottom-11');
+      // === EFEK BG HANYA UNTUK LAYAR XL ===
+      if (window.innerWidth >= 1280) {
+        bgAtas.classList.remove('-top-96');
+        bgAtas.classList.add('-top-5');
+        bgBawah.classList.remove('-bottom-96');
+        bgBawah.classList.add('-bottom-11');
 
-      // Sembunyikan kembali setelah delay
-      clearTimeout(window._scrollTimeout);
-      window._scrollTimeout = setTimeout(() => {
-        bgAtas.classList.add('-top-96');
-        bgAtas.classList.remove('-top-11');
-        bgBawah.classList.add('-bottom-96');
-        bgBawah.classList.remove('-bottom-11');
-      }, 300);
+        clearTimeout(window._scrollTimeout);
+        window._scrollTimeout = setTimeout(() => {
+          bgAtas.classList.add('-top-96');
+          bgAtas.classList.remove('-top-11');
+          bgBawah.classList.add('-bottom-96');
+          bgBawah.classList.remove('-bottom-11');
+        }, 300);
+      }
+      // === END BATAS XL ===
 
-      // Cek Swiper sudah mentok kanan atau kiri
       const isBeginning = swiperInstance.isBeginning;
       const isEnd = swiperInstance.isEnd;
 
