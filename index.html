@@ -41,7 +41,7 @@
 
   <body>
     <!-- PRELOADER -->
-    <div id="preloader">
+    <!-- <div id="preloader">
       <div
         class="absolute inset-0 flex justify-between px-4 z-50 pointer-events-none"
       >
@@ -75,19 +75,20 @@
         <p class="text-black">Preparing the magic</p>
         <p id="percentage" class="text-[248px] italic font-['volgarie']">0%</p>
       </div>
-    </div>
+    </div> -->
 
     <!-- KONTEN UTAMA -->
     <div id="main-content">
       <header
-        class="container max-w-screen mx-auto fixed top-0 inset-0 bg-white py-6 px-10 z-10 w-full h-fit"
+        class="mx-auto fixed top-0 inset-0 bg-white shadow-md py-6 px-4 sm:px-10 z-10 w-full h-fit"
       >
         <div class="w-full">
-          <!-- desktop -->
+          <!-- DESKTOP NAV -->
           <nav class="flex justify-between w-full">
             <li class="list-none z-10">
               <span class="clock"></span>
             </li>
+
             <li class="flex gap-2 items-center cursor-pointer">
               <button
                 id="menuToggle"
@@ -116,46 +117,69 @@
             </li>
           </nav>
 
-          <!-- isi menu hamburger -->
+          <!-- MENU DROPDOWN -->
           <nav
             id="menuDropdown"
             class="absolute w-full h-screen bg-white z-20 top-0 left-0 transition-all duration-500 ease-in-out opacity-0 scale-95 pointer-events-none"
           >
-            <ul class="flex items-center h-full px-10">
-              <li class="w-1/2 pr-48 space-y-4">
+            <ul class="flex items-start md:items-center h-full px-10 md:gap-8">
+              <!-- TEXT MENU -->
+              <li class="w-full md:w-1/2 space-y-4 text-left mt-20 md:mt-0">
                 <button
-                  class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-black"
+                  class="menu-btn hover:text-gray-700 cursor-pointer flex gap-8 lg:gap-24 md:items-center text-black w-full"
                 >
-                  <p class="text-primary">[01]</p>
-                  <p class="text-[64px]">Work</p>
+                  <p class="text-primary text-sm md:text-base lg:text-lg">
+                    [01]
+                  </p>
+                  <p
+                    class="text-[32px] md:text-[48px] lg:text-[64px] leading-none"
+                  >
+                    Work
+                  </p>
                 </button>
+
                 <button
-                  class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-gray-500"
+                  class="menu-btn hover:text-gray-700 cursor-pointer flex gap-8 lg:gap-24 md:items-center w-full text-gray-500"
                 >
-                  <p>[02]</p>
-                  <p class="text-[64px]">Studio</p>
+                  <p class="text-sm md:text-base lg:text-lg">[02]</p>
+                  <p
+                    class="text-[32px] md:text-[48px] lg:text-[64px] leading-none"
+                  >
+                    Studio
+                  </p>
                 </button>
+
                 <button
-                  class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-gray-500"
+                  class="menu-btn hover:text-gray-700 cursor-pointer flex gap-8 lg:gap-24 md:items-center w-full text-gray-500"
                 >
-                  <p>[03]</p>
-                  <p class="text-[64px]">Archive</p>
+                  <p class="text-sm md:text-base lg:text-lg">[03]</p>
+                  <p
+                    class="text-[32px] md:text-[48px] lg:text-[64px] leading-none"
+                  >
+                    Archive
+                  </p>
                 </button>
+
                 <button
-                  class="menu-btn hover:text-gray-700 cursor-pointer flex justify-between items-center w-full text-gray-500"
+                  class="menu-btn hover:text-gray-700 cursor-pointer flex gap-8 lg:gap-24 md:items-center w-full text-gray-500"
                 >
-                  <p>[04]</p>
-                  <p class="text-[64px]">Say hi</p>
+                  <p class="text-sm md:text-base lg:text-lg">[04]</p>
+                  <p
+                    class="text-[32px] md:text-[48px] lg:text-[64px] leading-none"
+                  >
+                    Say hi
+                  </p>
                 </button>
               </li>
 
+              <!-- IMAGE -->
               <figure
                 id="imgFigure"
-                class="-translate-x-10 opacity-0 scale-100 transition-all duration-500 ease-in-out"
+                class="opacity-0 scale-100 transition-all duration-500 ease-in-out mt-24 md:mt-0 md:w-[40%] lg:w-auto flex justify-center"
               >
                 <img
                   id="menuImage"
-                  class="transition-all duration-700 ease-in-out"
+                  class="transition-all duration-700 ease-in-out w-full md:w-64 lg:w-auto"
                   src="/img/imgMenu.png"
                   alt=""
                 />
@@ -173,7 +197,7 @@
           <!-- Background Atas -->
           <figure
             id="bgAtas"
-            class="absolute transition-all w-full -top-96 duration-300 pointer-events-none ease-in-out z-20"
+            class="absolute transition-all w-full lg:-top-96 duration-300 pointer-events-none ease-in-out z-20"
           >
             <img src="/img/background/bgAtas1.png" alt="" class="w-full" />
           </figure>
@@ -252,7 +276,7 @@
           <!-- Background Bawah -->
           <figure
             id="bgBawah"
-            class="absolute w-full transition-all -bottom-96 duration-300 pointer-events-none ease-in-out z-20"
+            class="absolute w-full transition-all lg:-bottom-96 duration-300 pointer-events-none ease-in-out z-20"
           >
             <img src="/img/background/bgBawah1.png" alt="" class="w-full" />
           </figure>
@@ -260,7 +284,9 @@
       </section>
 
       <section class="container mx-auto m-0 mb-10 mt-[184px]">
-        <div class="font-normal text-[248px] w-full flex justify-between">
+        <div
+          class="font-normal text-[60px] md:text-[150px] lg:text-[200px] xl:text-[248px] w-full flex md:justify-between gap-8"
+        >
           <p class="font-['Volgarie'] text-[#303931] inline-block leading-none">
             klora
           </p>
@@ -283,7 +309,7 @@
         class="hidden fixed inset-0 bg-black/50 z-50 overflow-y-auto"
       >
         <header
-          class="sticky top-0 z-10 text-white bg-black flex justify-between w-full py-6 px-11"
+          class="sticky top-0 z-10 text-white bg-black gap-8 w-full py-6 px-11 flex justify-between"
         >
           <div><span>11:23 AM - GMT+7</span></div>
           <p class="font-['Volgarie']">Klora Studio</p>
@@ -482,7 +508,7 @@
           </div>
 
           <div
-            class="text-8xl font-['Volgarie'] max-w-[881px] text-center mt-24 z-10"
+            class="text-5xl md:text-8xl font-['Volgarie'] max-w-[881px] text-center mt-24 z-10"
           >
             Where we’re begin the journey?
           </div>
@@ -527,7 +553,7 @@
 
           <!-- text -->
           <div
-            class="text-8xl font-['volgarie'] w-full max-w-[881px] text-center mt-24 z-20"
+            class="text-5xl md:text-8xl font-['volgarie'] w-full max-w-[881px] text-center mt-24 z-20"
           >
             Where we’re begin the journey?
           </div>
@@ -548,8 +574,10 @@
       </section>
 
       <section class="container min-h-screen mt-8">
-        <div class="flex justify-between">
-          <h3 class="text-8xl font-['volgarie'] w-full max-w-[670px]">
+        <div class="flex flex-col md:flex-row justify-between">
+          <h3
+            class="text-4xl md:text-5xl lg:text-8xl font-['volgarie'] w-full max-w-[670px]"
+          >
             what our customer says
           </h3>
           <p class="w-full text-primary max-w-[491px]">
@@ -562,27 +590,62 @@
           </p>
         </div>
 
+        <!-- MOBILE VERSION -->
+        <div class="flex md:hidden flex-col items-center gap-6 mt-10">
+          <img src="/img/profile1.png" class="w-40 rounded-full" />
+          <img src="/img/person4.png" class="w-40 rounded-full" />
+          <img src="/img/person8.png" class="w-40 rounded-full" />
+
+          <div class="text-center max-w-[300px] flex flex-col items-center">
+            <h4 class="font-['volgarie'] text-primary text-lg">
+              “Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
+              turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus
+              nec fringilla accumsan...”
+            </h4>
+
+            <div class="mt-3">
+              <p>Anthony Boyd</p>
+              <p>The Studio</p>
+            </div>
+          </div>
+
+          <img src="/img/perosn9.png" class="w-40 rounded-full" />
+          <img src="/img/person6.png" class="w-40 rounded-full" />
+          <img src="/img/person7.png" class="w-40 rounded-full" />
+        </div>
+
+        <!-- DESKTOP VERSION -->
         <div
-          class="flex items-center max-w-5xl justify-center mx-auto mt-[131px] h-[1066px] relative"
+          class="hidden md:flex items-center max-w-5xl justify-center mx-auto mt-[131px] h-[1066px] relative"
         >
+          <!-- Left column -->
           <div class="flex flex-col justify-between h-full">
-            <figure><img src="/img/profile1.png" alt="" /></figure>
+            <figure>
+              <img src="/img/profile1.png" alt="" class="w-full" />
+            </figure>
             <figure><img src="/img/person4.png" alt="" /></figure>
           </div>
 
+          <!-- Top floating images -->
           <div
-            class="flex justify-between w-full absolute top-[94px] px-[94px]"
+            class="hidden md:flex justify-between w-full absolute top-[94px] lg:px-[94px]"
           >
             <figure><img src="/img/person4.png" alt="" /></figure>
             <figure><img src="/img/person5.png" alt="" /></figure>
           </div>
 
-          <div class="flex justify-between w-full absolute top-[418px]">
+          <!-- Middle content -->
+          <div
+            class="hidden md:flex justify-between w-full absolute top-[418px]"
+          >
             <figure><img src="/img/person8.png" alt="" /></figure>
+
             <div
               class="text-center max-w-[487px] flex flex-col items-center m-auto"
             >
-              <h4 class="text-center font-['volgarie'] text-primary text-2xl">
+              <h4
+                class="text-center font-['volgarie'] text-primary text-xl lg:text-2xl"
+              >
                 “Yorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
                 eu turpis molestie, dictum est a, mattis tellus. Sed dignissim,
                 metus nec fringilla accumsan, “
@@ -592,11 +655,13 @@
                 <p>The Studio</p>
               </div>
             </div>
+
             <figure><img src="/img/perosn9.png" alt="" /></figure>
           </div>
 
+          <!-- Bottom floating images -->
           <div
-            class="flex justify-between w-full absolute bottom-[94px] px-[94px]"
+            class="hidden md:flex justify-between w-full absolute bottom-[94px] lg:px-[94px]"
           >
             <figure><img src="/img/person6.png" alt="" /></figure>
             <figure><img src="/img/person7.png" alt="" /></figure>
@@ -605,35 +670,40 @@
       </section>
 
       <footer class="container pb-6 bg-[#303931] mt-20">
-        <div class="h-full flex flex-col gap-[178px]">
-          <div class="mt-24 text-primary">
-            <h4>Say Hi !</h4>
-            <a href="" class="block">Hello@klora.std </a>
-            <a href="" class="block">+62 321 323 333 </a>
-            <a href="" class="block">@Klora.std </a>
+        <div class="h-full flex flex-col gap-20 md:gap-[178px]">
+          <!-- Contact Section -->
+          <div class="mt-16 text-primary text-left">
+            <h4 class="text-xl md:text-2xl font-semibold">Say Hi !</h4>
+            <a href="" class="block mt-2 text-base md:text-lg"
+              >Hello@klora.std</a
+            >
+            <a href="" class="block text-base md:text-lg">+62 321 323 333</a>
+            <a href="" class="block text-base md:text-lg">@Klora.std</a>
           </div>
 
+          <!-- Branding Section -->
           <div class="font-normal w-full flex flex-col justify-between">
+            <!-- Big Logo Text -->
             <div
-              class="text-[248px] flex justify-between border-b border-primary"
+              class="text-[60px] sm:text-[90px] md:text-[150px] lg:text-[200px] xl:text-[248px] flex flex-wrap md:flex-nowrap justify-between border-b border-primary gap-2"
             >
-              <p
-                class="font-['Volgarie'] text-primary inline-block leading-none"
-              >
-                klora
-              </p>
-              <p
-                class="font-['Volgarie'] text-primary inline-block leading-none"
-              >
-                Studio
-              </p>
+              <p class="font-['Volgarie'] text-primary leading-none">klora</p>
+              <p class="font-['Volgarie'] text-primary leading-none">Studio</p>
             </div>
 
-            <div class="flex justify-between mt-7 text-primary">
+            <!-- Footer Bottom -->
+            <div
+              class="flex flex-col md:flex-row justify-between mt-7 text-primary gap-4 md:gap-0 text-left md:text-base text-sm"
+            >
               <p>KloraStudio</p>
-              <p class="">Copyright 2024©️All right Reserved.</p>
+
+              <p class="order-last md:order-none md:text-right">
+                Copyright 2024©️ All right Reserved.
+              </p>
+
               <p class="flex gap-4">
-                <span>User Agreement</span><span>Privacy Policy</span>
+                <span>User Agreement</span>
+                <span>Privacy Policy</span>
               </p>
             </div>
           </div>
